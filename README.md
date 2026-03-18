@@ -224,5 +224,24 @@ Bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script me
 ```
 Bagian ini digunakan untuk menangani kondisi ketika kode soal yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
 
+#### Menjalankan script KANJ.sh
+dengan perintah berikut:
+
+Hitung jumlah penumpang
+awk -f KANJ.sh passenger.csv a  
+
+Hitung jumlah gerbong unik
+awk -f KANJ.sh passenger.csv b  
+
+Cari penumpang tertua
+awk -f KANJ.sh passenger.csv c  
+
+Hitung rata-rata usia
+awk -f KANJ.sh passenger.csv d 
+
+Hitung jumlah penumpang Business Class
+awk -f KANJ.sh passenger.csv e  
+
 ### Output / Screenshot
+
 ### Kendala
