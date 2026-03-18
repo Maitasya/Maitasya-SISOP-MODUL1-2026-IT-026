@@ -222,7 +222,7 @@ Bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script me
         print "Contoh penggunaan: awk -f KANJ.sh passenger.csv a"
     }
 ```
-Bagian ini digunakan untuk menangani kondisi ketika kode soal yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
+Bagian ini digunakan untuk menangani kondisi ketika kode yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
 
 #### Menjalankan script KANJ.sh
 dengan perintah berikut:
@@ -252,7 +252,7 @@ Hitung jumlah penumpang Business Class
 ```bash 
 awk -f KANJ.sh passenger.csv e
 ```
-
+Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan dan menampilkan hasil analisis langsung ke terminal.
 ### Output / Screenshot
 
 ### Kendala
