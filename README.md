@@ -26,9 +26,8 @@ Pertama, membuat struktur direktori sesuai ketentuan soal, dengan  perintah  ber
 #### 2. Menyiapkan File
 
 Menambahkan file yang dibutuhkan:
-
-        - KANJ.sh → digunakan sebagai file yang menampung script awk
-        - passenger.csv → digunakan sebagai file yang menampung data penumpang
+- KANJ.sh → digunakan sebagai file yang menampung script awk
+- passenger.csv → digunakan sebagai file yang menampung data penumpang
         
 dengan perintah berikut:                         
 
