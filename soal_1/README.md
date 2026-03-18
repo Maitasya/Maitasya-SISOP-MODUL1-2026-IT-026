@@ -1,4 +1,5 @@
 # Maitasya-SISOP-MODUL1-2026-IT-026
+
 ---
 #### Nama : Maitasya Rohmatul Ula
 #### NRP  : 5027251026
@@ -64,7 +65,6 @@ soal_1/
     }
 ```
 Bagian ini berfungsi untuk menyiapkan dan membersihkan data awal sebelum diproses. Script menetapkan pemisah kolom CSV, mengambil nama file dan kode soal dari argumen, serta menghapus argumen yang tidak perlu agar data siap dianalisis. Dengan kata lain, bagian ini berperan sebagai proses cleaning data awal sehingga data penumpang siap digunakan untuk analisis berikutnya.
-
 
 #### Berikut full scriptnya:
 ---
@@ -226,3 +226,4 @@ Bagian ini digunakan untuk menangani kondisi ketika kode soal yang dimasukkan ti
 
 ### Output / Screenshot
 ### Kendala
+
