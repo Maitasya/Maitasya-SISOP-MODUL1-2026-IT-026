@@ -274,5 +274,8 @@ Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan d
 <img width="1710" height="158" alt="Screenshot 2026-03-18 194258" src="https://github.com/user-attachments/assets/2b1c9ab1-a7b8-4f23-ab92-336cf5a74988" />
 
 ### Kendala
+Banyak sekali error di logika berikut adalah buktinya:
+<img width="978" height="633" alt="image" src="https://github.com/user-attachments/assets/4865d733-e5e6-4a83-85af-846c036d0c05" />
+
 
 
