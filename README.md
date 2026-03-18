@@ -253,6 +253,25 @@ Hitung jumlah penumpang Business Class
 awk -f KANJ.sh passenger.csv e
 ```
 Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan dan menampilkan hasil analisis langsung ke terminal.
+
 ### Output / Screenshot
+1. Total penumpang
+<img width="1731" height="229" alt="Screenshot 2026-03-18 193453" src="https://github.com/user-attachments/assets/d33e1682-8f42-444e-9b3a-5530b7b61c93" />
+
+2. Jumlah gerbong
+<img width="1700" height="124" alt="Screenshot 2026-03-18 193515" src="https://github.com/user-attachments/assets/26ef94af-87ae-42ba-b1f2-b8d071e43b56" />
+
+3. Penumpang tertua
+<img width="1713" height="122" alt="Screenshot 2026-03-18 193536" src="https://github.com/user-attachments/assets/3dc6704f-e627-4904-bc69-a47b59e4f7aa" />
+
+4. Rata-rata usia penumpang
+<img width="1733" height="160" alt="Screenshot 2026-03-18 193705" src="https://github.com/user-attachments/assets/6e3b0438-acce-47d0-9faa-1ac26f235dbb" />
+
+5. Jumlah penumpang Business Class
+<img width="1723" height="111" alt="Screenshot 2026-03-18 193724" src="https://github.com/user-attachments/assets/0a27bcb7-73ed-44f6-81bd-b27db936ac7b" />
+
+6. Input selain a/b/c/d/e (error handler)
+<img width="1686" height="137" alt="Screenshot 2026-03-18 193750" src="https://github.com/user-attachments/assets/e7fa93bd-0349-42a4-b6eb-1a43e9ce9cb2" />
 
 ### Kendala
+
