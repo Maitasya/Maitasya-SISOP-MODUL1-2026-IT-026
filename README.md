@@ -184,7 +184,7 @@ Bagian ini digunakan untuk menghitung jumlah gerbong unik tempat penumpang KANJ 
         printf "%s adalah penumpang kereta tertua dengan usia %d tahun\n", oldest, max_age
     }
 ```
-Bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melewati baris pertama, lalu membersihkan spasi pada kolom usia dan mengubahnya menjadi angka. Selama membaca data, script selalu membandingkan usia penumpang saat ini dengan usia tertinggi yang telah tercatat. Jika lebih tua, nama dan usia penumpang tersebut disimpan sebagai penumpang tertua. Setelah seluruh data dibaca, script menampilkan nama penumpang tertua beserta usianya.
+Lalu bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melewati baris pertama, lalu membersihkan spasi pada kolom usia dan mengubahnya menjadi angka. Selama membaca data, script selalu membandingkan usia penumpang saat ini dengan usia tertinggi yang telah tercatat. Jika lebih tua, nama dan usia penumpang tersebut disimpan sebagai penumpang tertua. Setelah seluruh data dibaca, script menampilkan nama penumpang tertua beserta usianya.
 
 #### D. Menghitung rata-rata usia penumpang
 ```bash
@@ -201,7 +201,7 @@ Bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melewati b
         printf "Rata-rata usia penumpang adalah %d tahun\n", average_age
     }
 ```
-Bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ. Script melewati baris pertama, kemudian membersihkan spasi pada kolom usia dan menambahkan setiap nilai usia ke total kumulatif. Selain itu, script juga menghitung jumlah penumpang yang valid. Setelah semua data dibaca, script menghitung rata-rata usia dengan membagi total usia dengan jumlah penumpang, membulatkannya, lalu menampilkan hasilnya ke layar.
+Kemudian di bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ. Script melewati baris pertama, kemudian membersihkan spasi pada kolom usia dan menambahkan setiap nilai usia ke total kumulatif. Selain itu, script juga menghitung jumlah penumpang yang valid. Setelah semua data dibaca, script menghitung rata-rata usia dengan membagi total usia dengan jumlah penumpang, membulatkannya, lalu menampilkan hasilnya ke layar.
 
 #### E. Menghitung Jumlah penumpang Business Class
 ```bash
@@ -213,7 +213,7 @@ Bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ. Script mele
         printf "Jumlah penumpang business class ada %d orang\n", business_passenger
     }
 ```
-Bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script melewati baris pertama, lalu memeriksa kolom kelas untuk menentukan apakah penumpang termasuk Business. Setiap penumpang yang sesuai dihitung dan disimpan ke variabel khusus. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang Business Class ke layar.
+selanjutnya di bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script melewati baris pertama, lalu memeriksa kolom kelas untuk menentukan apakah penumpang termasuk Business. Setiap penumpang yang sesuai dihitung dan disimpan ke variabel khusus. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang Business Class ke layar.
 
 #### Jika tidak sesuai inputanya
 ```bash 
@@ -222,7 +222,7 @@ Bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script me
         print "Contoh penggunaan: awk -f KANJ.sh passenger.csv a"
     }
 ```
-Bagian ini digunakan untuk menangani kondisi ketika kode yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
+Dan yang bagian terakhir ini digunakan untuk menangani kondisi ketika kode yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
 
 #### Menjalankan script KANJ.sh
 dengan perintah berikut:
