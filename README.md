@@ -276,6 +276,11 @@ Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan d
 ### Kendala
 Banyak sekali error di logika berikut adalah buktinya:
 <img width="978" height="633" alt="image" src="https://github.com/user-attachments/assets/4865d733-e5e6-4a83-85af-846c036d0c05" />
+- Salah menggunakan struktur percabangan karena kemarin abis baca modul bagian shell scripting (bash).
+- Perhitungan gerbong unik tidak akurat karena data belum dibersihkan sepenuhnya (spasi atau karakter tersembunyi masih terbaca sebagai data berbeda).
+- Nilai umur tidak terbaca dengan benar akibat kesalahan parsing kolom atau belum dilakukan konversi ke numerik.
+- Kesalahan dalam pengambilan field menyebabkan seluruh baris terbaca sebagai satu variabel.
+- Perubahan kode belum konsisten atau belum menyentuh bagian inti permasalahan (logika utama masih salah).
 
 
 
