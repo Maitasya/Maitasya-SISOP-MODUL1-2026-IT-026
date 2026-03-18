@@ -271,7 +271,8 @@ Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan d
 <img width="1723" height="111" alt="Screenshot 2026-03-18 193724" src="https://github.com/user-attachments/assets/0a27bcb7-73ed-44f6-81bd-b27db936ac7b" />
 
 6. Input selain a/b/c/d/e (error handler)
-<img width="1686" height="137" alt="Screenshot 2026-03-18 193750" src="https://github.com/user-attachments/assets/e7fa93bd-0349-42a4-b6eb-1a43e9ce9cb2" />
+<img width="1710" height="158" alt="Screenshot 2026-03-18 194258" src="https://github.com/user-attachments/assets/2b1c9ab1-a7b8-4f23-ab92-336cf5a74988" />
 
 ### Kendala
+
 
