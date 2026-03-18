@@ -18,35 +18,35 @@ soal_1/
 ### Langkah Pengerjaan
 #### 1. Membuat Struktur Folder
 
-    Pertama, membuat struktur direktori sesuai ketentuan soal, dengan  perintah  berikut:
+Pertama, membuat struktur direktori sesuai ketentuan soal, dengan  perintah  berikut:
         mkdir soal_1  
         cd soal_1
 
 #### 2. Menyiapkan File
 
-    Menambahkan file yang dibutuhkan:
+Menambahkan file yang dibutuhkan:
 
         - KANJ.sh → digunakan sebagai file yang menampung script awk
         - passenger.csv → digunakan sebagai file yang menampung data penumpang
         
-    dengan perintah berikut:                         
+dengan perintah berikut:                         
 
         touch KANJ.sh  (di sini masih beruba file kosong)    
         touch passenger.csv
 
 #### 3. Mengunduh File Data Penumpang
-    Pada tahap ini, dilakukan proses pengunduhan file data penumpang yang akan digunakan sebagai bahan pengolahan pada script. 
+Pada tahap ini, dilakukan proses pengunduhan file data penumpang yang akan digunakan sebagai bahan pengolahan pada script. 
 
-    Perintah yang digunakan adalah sebagai berikut:
+Perintah yang digunakan adalah sebagai berikut:
 
     wget -O passenger.csv "https://docs.google.com/spreadsheets/d 1NHmyS6wRO7To7ta-NLOOLHkPS6valvNaX7tawsv1zfE/export?format=csv"
 
-    Setelah file passenger.csv berhasil diunduh, langkah selanjutnya adalah memastikan isi file tersebut telah terunduh dengan benar serta melihat struktur data yang terdapat di dalamnya, dengan menggunakan perintah:
+Setelah file passenger.csv berhasil diunduh, langkah selanjutnya adalah memastikan isi file tersebut telah terunduh dengan benar serta melihat struktur data yang terdapat di dalamnya, dengan menggunakan perintah:
 
     cat passenger.csv 
 
 #### 4. Menulis Script Awk
-    Membuka file menggunakan text editor, dengan  perintah  berikut:
+Membuka file menggunakan text editor, dengan  perintah  berikut:
             nano KANJ.sh 
 
         Kemudian menuliskan logika program menggunakan awk untuk:
