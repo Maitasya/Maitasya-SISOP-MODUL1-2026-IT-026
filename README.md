@@ -281,6 +281,9 @@ Banyak sekali error di logika berikut adalah buktinya:
 - Nilai umur tidak terbaca dengan benar akibat kesalahan parsing kolom atau belum dilakukan konversi ke numerik.
 - Kesalahan dalam pengambilan field menyebabkan seluruh baris terbaca sebagai satu variabel.
 - Perubahan kode belum konsisten atau belum menyentuh bagian inti permasalahan (logika utama masih salah).
+---
 
-
+## SOAL 2
+### Deskripsi
+Pada soal ini dilakukan proses pencarian lokasi pusaka dengan mengunduh file peta, menemukan tautan tersembunyi, dan melakukan clone repository untuk mendapatkan data koordinat dalam file JSON. Data tersebut kemudian diparsing menggunakan shell script parserkoordinat.sh untuk mengambil informasi penting seperti id, nama lokasi, latitude, dan longitude ke dalam file terstruktur. Selanjutnya, posisi pusaka ditentukan dengan menghitung titik tengah dari dua koordinat diagonal menggunakan script nemupusaka.sh dan hasilnya disimpan dalam file posisipusaka.txt.
 
