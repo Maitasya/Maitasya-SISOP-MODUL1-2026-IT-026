@@ -230,12 +230,14 @@ dengan perintah berikut:
 -  Hitung jumlah penumpang
 
 
-   awk -f KANJ.sh passenger.csv a  
+   awk -f KANJ.sh passenger.csv a
+   
 
 - Hitung jumlah gerbong 
 
 
 awk -f KANJ.sh passenger.csv b  
+
 
 - Cari penumpang tertua
 
@@ -247,10 +249,12 @@ awk -f KANJ.sh passenger.csv c
 
 awk -f KANJ.sh passenger.csv d 
 
+
 - Hitung jumlah penumpang Business Class
 
 
 awk -f KANJ.sh passenger.csv e  
+
 
 ### Output / Screenshot
 
