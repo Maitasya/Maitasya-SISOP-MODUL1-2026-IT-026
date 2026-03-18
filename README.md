@@ -228,23 +228,28 @@ Bagian ini digunakan untuk menangani kondisi ketika kode soal yang dimasukkan ti
 #### Menjalankan script KANJ.sh
 dengan perintah berikut:
 
-Hitung jumlah penumpang
+-  Hitung jumlah penumpang
 
-awk -f KANJ.sh passenger.csv a  
 
-Hitung jumlah gerbong 
+   awk -f KANJ.sh passenger.csv a  
+
+- Hitung jumlah gerbong 
+
 
 awk -f KANJ.sh passenger.csv b  
 
-Cari penumpang tertua
+- Cari penumpang tertua
+
 
 awk -f KANJ.sh passenger.csv c  
 
-Hitung rata-rata usia
+- Hitung rata-rata usia
+
 
 awk -f KANJ.sh passenger.csv d 
 
-Hitung jumlah penumpang Business Class
+- Hitung jumlah penumpang Business Class
+
 
 awk -f KANJ.sh passenger.csv e  
 
