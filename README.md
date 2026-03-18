@@ -19,6 +19,7 @@ soal_1/
 #### 1. Membuat Struktur Folder
 
 Pertama, membuat struktur direktori sesuai ketentuan soal, dengan  perintah  berikut:
+
         mkdir soal_1  
         cd soal_1
 
