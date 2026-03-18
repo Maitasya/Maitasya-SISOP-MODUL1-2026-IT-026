@@ -228,19 +228,30 @@ Bagian ini digunakan untuk menangani kondisi ketika kode soal yang dimasukkan ti
 dengan perintah berikut:
 
 Hitung jumlah penumpang
-```bash awk -f KANJ.sh passenger.csv a ```
 
+```bash 
+awk -f KANJ.sh passenger.csv a
+```
 Hitung jumlah gerbong
-```bash awk -f KANJ.sh passenger.csv b ```
 
+```bash
+awk -f KANJ.sh passenger.csv b
+```
 Cari penumpang tertua
-```bash awk -f KANJ.sh passenger.csv c ```
 
+```bash 
+awk -f KANJ.sh passenger.csv c
+```
 Hitung rata-rata usia
-```bash awk -f KANJ.sh passenger.csv d ```
 
+```bash 
+awk -f KANJ.sh passenger.csv d
+```
 Hitung jumlah penumpang Business Class
-```bash awk -f KANJ.sh passenger.csv e ```
+
+```bash 
+awk -f KANJ.sh passenger.csv e
+```
 
 ### Output / Screenshot
 
