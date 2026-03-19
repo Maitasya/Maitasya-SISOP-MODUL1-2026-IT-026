@@ -289,7 +289,7 @@ Banyak sekali error di logika berikut adalah buktinya:
 
 ## SOAL 2
 ### Deskripsi
-Pada soal ini dilakukan proses pencarian lokasi pusaka dengan mengunduh file peta, menemukan tautan tersembunyi, dan melakukan clone repository untuk mendapatkan data koordinat dalam file JSON. Data tersebut kemudian diparsing menggunakan shell script parserkoordinat.sh untuk mengambil informasi penting seperti id, nama lokasi, latitude, dan longitude ke dalam file terstruktur. Selanjutnya, posisi pusaka ditentukan dengan menghitung titik tengah dari dua koordinat diagonal menggunakan script nemupusaka.sh dan hasilnya disimpan dalam file posisipusaka.txt.
+Pada soal ini diminta untuk melakukan lakukan proses pencarian lokasi pusaka dengan mengunduh file peta, menemukan tautan tersembunyi, dan melakukan clone repository untuk mendapatkan data koordinat dalam file JSON. Data tersebut kemudian diparsing menggunakan shell script parserkoordinat.sh untuk mengambil informasi penting seperti id, nama lokasi, latitude, dan longitude ke dalam file terstruktur. Selanjutnya, posisi pusaka ditentukan dengan menghitung titik tengah dari dua koordinat diagonal menggunakan script nemupusaka.sh dan hasilnya disimpan dalam file posisipusaka.txt.
 
 ### Struktur Repository
 ```bash 
@@ -444,3 +444,19 @@ cat posisipusaka.txt
 -Pas awal tidak tahu cara download file dari Google Drive menggunakan gdown atau cara membuat virtual environment
 
 -Parsing JSON secara manual
+
+## SOAL 3 
+### Deskripsi
+Pada soal ini di minta untuk membuat sistem manajemen kost berbasis CLI menggunakan Bash dan AWK. Program memungkinkan pengguna menambahkan penghuni dengan validasi input, menghapus dan mengarsipkan data penghuni, menampilkan daftar penghuni rapi, memperbarui status, mencetak laporan keuangan otomatis, serta mengatur cron job pengingat tagihan. Seluruh data tersimpan terstruktur di folder data, rekap, sampah, dan log, sementara menu interaktif terus looping hingga pengguna memilih keluar, sehingga manajemen kost dapat dilakukan efisien melalui terminal.
+
+### Struktur Repository
+soal_3/
+|--kost_slebew.sh          
+|--data/
+|   |_penghuni.csv         
+|--log/
+|   |_tagihan.log          
+|--rekap/
+|   |_laporan_bulanan.txt  
+|--sampah/
+    |_history_hapus.csv    
