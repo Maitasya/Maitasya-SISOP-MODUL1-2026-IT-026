@@ -462,3 +462,5 @@ soal_3/
 └── sampah
     └── history_hapus.csv
 ```   
+### Langkah Pengerjaan
+#### 1. 
