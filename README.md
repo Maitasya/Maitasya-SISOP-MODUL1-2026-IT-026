@@ -442,8 +442,12 @@ cat posisipusaka.txt
 <img width="1919" height="232" alt="Screenshot 2026-03-19 104838" src="https://github.com/user-attachments/assets/5b4d498d-756f-4739-98a0-ec55946d1f8a" />
 
 ### Kendala
-    -Susah memahami soal
-    -Banyak sekali error di logika
-    -Sering typo saat menuliskan perintah
-    -Pas awal tidak tahu cara download file dari Google Drive menggunakan gdown atau cara membuat virtual environment
-    -Parsing JSON secara manual
+-Susah memahami soal
+
+-Banyak sekali error di logika
+
+-Sering typo saat menuliskan perintah
+
+-Pas awal tidak tahu cara download file dari Google Drive menggunakan gdown atau cara membuat virtual environment
+
+-Parsing JSON secara manual
