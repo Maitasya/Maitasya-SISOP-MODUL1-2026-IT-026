@@ -452,13 +452,13 @@ Pada soal ini di minta untuk membuat sistem manajemen kost berbasis CLI mengguna
 ### Struktur Repository
 ```bash
 soal_3/
-|--kost_slebew.sh          
-|--data/
-|   |_penghuni.csv         
-|--log/
-|   |_tagihan.log          
-|--rekap/
-|   |_laporan_bulanan.txt  
-|--sampah/
-    |_history_hapus.csv
+├── kost_slebew.sh          
+├── data
+│   └── penghuni.csv
+├── log
+│   └── tagihan.log
+├── rekap
+│   └── laporan_bulanan.txt
+└── sampah
+    └── history_hapus.csv
 ```   
