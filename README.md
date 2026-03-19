@@ -4,7 +4,7 @@
 #### NRP  : 5027251026
 #### SISOP A
 ---
-## SOAL 1
+## SOAL 1 
 ### Deskripsi
 
 Program ini dibuat untuk menganalisis data penumpang kereta KANJ yang tersimpan dalam file passenger.csv menggunakan awk. Program dapat menghitung jumlah penumpang, jumlah gerbong, penumpang tertua, rata-rata usia, dan jumlah penumpang business class.
