@@ -312,6 +312,7 @@ mkdir soal_2
 cd soal_2
 mkdir ekspedsi
 cd ekspedsi
+mkdir peta-ekspedisi-amba.pdf
 mkdir peta-gunung-kawi
 cd peta-gunung-kawi
 touch gsxtrack.json
