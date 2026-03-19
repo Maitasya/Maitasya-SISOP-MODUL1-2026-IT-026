@@ -398,31 +398,24 @@ isi scriptnya sebagai berikut:
 
 ```bash
 #!/bin/bash
-# nemupusaka.sh - versi simple pemula friendly
 
-INPUT_FILE="titik-penting.txt"
-OUTPUT_FILE="posisipusaka.txt"
+# baca koordinat dari titik-penting.txt
+lat1=$(awk -F"," 'NR==1 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
+lon1=$(awk -F"," 'NR==1 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
 
-# Ambil koordinat 4 titik, hanya kolom 3 dan 4 (latitude, longi>
-lat1=$(awk -F", " 'NR==1{print $3}' $INPUT_FILE)
-lon1=$(awk -F", " 'NR==1{print $4}' $INPUT_FILE)
-lat2=$(awk -F", " 'NR==2{print $3}' $INPUT_FILE)
-lon2=$(awk -F", " 'NR==2{print $4}' $INPUT_FILE)
-lat3=$(awk -F", " 'NR==3{print $3}' $INPUT_FILE)
-lon3=$(awk -F", " 'NR==3{print $4}' $INPUT_FILE)
-lat4=$(awk -F", " 'NR==4{print $3}' $INPUT_FILE)
-lon4=$(awk -F", " 'NR==4{print $4}' $INPUT_FILE)
+lat2=$(awk -F"," 'NR==3 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
+lon2=$(awk -F"," 'NR==3 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
 
-# Hitung titik tengah diagonal dengan bash (skala 6 digit)
-pusaka_lat=$(echo "scale=6; (($lat1 + $lat3)/2 + ($lat2 + $lat4>
-pusaka_lon=$(echo "scale=6; (($lon1 + $lon3)/2 + ($lon2 + $lon4>
+# hitung titik tengah menggunakan bc
+mid_lat=$(echo "scale=6; ($lat1 + $lat2)/2" | bc -l)
+mid_lon=$(echo "scale=6; ($lon1 + $lon2)/2" | bc -l)
 
-# Simpan ke file dengan format rapi
-echo "Koordinat Pusaka Ditemukan:" > $OUTPUT_FILE
-echo "Latitude: $pusaka_lat" >> $OUTPUT_FILE
-echo "Longitude: $pusaka_lon" >> $OUTPUT_FILE
+# simpan ke posisipusaka.txt dengan format yang diminta
+echo "Koordinat Pusaka Ditemukan:" > posisipusaka.txt
+echo "Latitude: $mid_lat" >> posisipusaka.txt
+echo "Longitude: $mid_lon" >> posisipusaka.txt
 
-echo "Lokasi pusaka tersimpan di $OUTPUT_FILE"
+echo "Lokasi pusaka tersimpan di posisipusaka.txt"
 ```
 Script `nemupusaka.sh` ini digunakan untuk menghitung titik tengah pusaka berdasarkan koordinat empat titik yang sudah diekstrak sebelumnya (`titik-penting.txt`). Langkah yang pertama script akan membaca `latitude` dan `longitude` dari empat titik (kolom 3 dan 4 di file teks) menggunakan `awk` dan menyimpannya ke variabel, kemudian menghitung titik tengah diagonal dengan rumus rata-rata dari koordinat yang berseberangan untuk menentukan lokasi persis pusaka, hasil perhitungan disimpan dalam variabel `pusaka_lat` dan `pusaka_lon`; terakhir script menulis hasil koordinat pusaka ke file `posisipusaka.txt` dan memberi konfirmasi bahwa lokasi sudah tersimpan, sehingga data ini siap digunakan untuk tahap ekspedisi selanjutnya.
 
