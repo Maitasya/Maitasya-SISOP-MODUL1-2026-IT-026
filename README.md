@@ -450,6 +450,7 @@ cat posisipusaka.txt
 Pada soal ini di minta untuk membuat sistem manajemen kost berbasis CLI menggunakan Bash dan AWK. Program memungkinkan pengguna menambahkan penghuni dengan validasi input, menghapus dan mengarsipkan data penghuni, menampilkan daftar penghuni rapi, memperbarui status, mencetak laporan keuangan otomatis, serta mengatur cron job pengingat tagihan. Seluruh data tersimpan terstruktur di folder data, rekap, sampah, dan log, sementara menu interaktif terus looping hingga pengguna memilih keluar, sehingga manajemen kost dapat dilakukan efisien melalui terminal.
 
 ### Struktur Repository
+```bash
 soal_3/
 |--kost_slebew.sh          
 |--data/
@@ -459,4 +460,5 @@ soal_3/
 |--rekap/
 |   |_laporan_bulanan.txt  
 |--sampah/
-    |_history_hapus.csv    
+    |_history_hapus.csv
+```   
