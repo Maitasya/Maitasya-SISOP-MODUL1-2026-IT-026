@@ -289,7 +289,6 @@ Pada soal ini dilakukan proses pencarian lokasi pusaka dengan mengunduh file pet
 
 ### Struktur Repository
 soal_2
-
 └── ekspedsi
        ├── peta-ekspedisi-amba.pdf
        └── peta-gunung-kawi
