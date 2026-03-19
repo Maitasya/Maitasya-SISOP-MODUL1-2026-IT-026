@@ -357,3 +357,15 @@ chmod +x nemupusaka.sh
 ./nemupusaka.sh
 cat posisipusaka.txt
 ```
+
+### Output / Screenshot
+1. File `titik-penting.txt`
+<img width="1916" height="278" alt="Screenshot 2026-03-19 082809" src="https://github.com/user-attachments/assets/da7d4e05-039e-42e2-8d20-417a4209c9c6" />
+   
+2. File `posisipusaka.txt`
+<img width="1899" height="259" alt="Screenshot 2026-03-19 082921" src="https://github.com/user-attachments/assets/c750e15f-a32e-495c-afac-d9a4f1903bca" />
+
+3. Mengunduh File Peta 
+
+4. Menginstall Git dan Clone Repository Tautan Tersembunyi
+   
