@@ -341,6 +341,7 @@ gdown https://drive.google.com/uc?id=1q10pHSC3KFfvEiCN3V6PTroPR7YGHF6Q
 
 #### 4. Menginstall Git dan Clone Repository Tautan Tersembunyi
 Menginstall Git dan meng-clone repository untuk mendapatkan data JSON titik lokasi:
+
 ```bash 
 strings peta-ekspedisi-amba.pdf
 git clone https://github.com/pocongcyber77/peta-gunung-kawi.git
@@ -353,7 +354,7 @@ Membuat dan menjalankan shell script `parserkoordinat.sh` untuk mengekstrak data
 
 ```bash 
 nano parserkoordinat.sh
-``
+```
 isi scriptnya sebagai berikut:
 
 ```bash
@@ -376,7 +377,7 @@ BEGIN { FS="[:,]"; OFS=", " }
 
 # Konfirmasi selesai
 echo "Parsing selesai. Data disimpan di $OUTPUT_FILE"
-``
+```
 Script ini digunakan untuk mengekstrak dan merapikan data koordinat penting dari file JSON (gsxtrack.json) ke dalam format teks yang mudah dibaca (titik-penting.txt). Yang pertama script membersihkan file output lama agar hasil baru tidak menumpuk, lalu menggunakan awk untuk membaca setiap baris JSON dan mencari field id, site_name, latitude, dan longitude; setiap nilai yang ditemukan dibersihkan dari spasi atau karakter tambahan,  ketika longitude ditemukan, script mencetak semua data yang sudah dikumpulkan (id, site_name, latitude, longitude) ke file output. Akhirnya script memberi konfirmasi bahwa proses parsing selesai dan file teks siap digunakan untuk tahap selanjutnya.
 
 untuk menjalankannya maka gunakan printah berikut ini:
@@ -395,7 +396,7 @@ nano nemupusaka.sh
 ```
 isi scriptnya sebagai berikut:
 
-``bash
+```bash
 #!/bin/bash
 # nemupusaka.sh - versi simple pemula friendly
 
@@ -438,7 +439,7 @@ cat posisipusaka.txt
 <img width="1916" height="278" alt="Screenshot 2026-03-19 082809" src="https://github.com/user-attachments/assets/da7d4e05-039e-42e2-8d20-417a4209c9c6" />
    
 2. File `posisipusaka.txt`
-<img width="1121" height="389" alt="Screenshot 2026-03-19 102057" src="https://github.com/user-attachments/assets/5ea1b419-ac27-466d-ab43-a7e2bd88fc8e" />
+<img width="1919" height="232" alt="Screenshot 2026-03-19 104838" src="https://github.com/user-attachments/assets/5b4d498d-756f-4739-98a0-ec55946d1f8a" />
 
 3. Mengunduh File Peta 
 
