@@ -49,7 +49,8 @@ Setelah file passenger.csv berhasil diunduh, langkah selanjutnya adalah memastik
 
 #### 4. Menulis Script Awk
 Membuka file menggunakan text editor, dengan  perintah  berikut:
-            nano KANJ.sh 
+
+nano KANJ.sh 
 
 Kemudian menuliskan logika program menggunakan awk untuk:
 #### Awalan 
