@@ -287,3 +287,13 @@ Banyak sekali error di logika berikut adalah buktinya:
 ### Deskripsi
 Pada soal ini dilakukan proses pencarian lokasi pusaka dengan mengunduh file peta, menemukan tautan tersembunyi, dan melakukan clone repository untuk mendapatkan data koordinat dalam file JSON. Data tersebut kemudian diparsing menggunakan shell script parserkoordinat.sh untuk mengambil informasi penting seperti id, nama lokasi, latitude, dan longitude ke dalam file terstruktur. Selanjutnya, posisi pusaka ditentukan dengan menghitung titik tengah dari dua koordinat diagonal menggunakan script nemupusaka.sh dan hasilnya disimpan dalam file posisipusaka.txt.
 
+### Struktur Repository
+soal_2
+└── ekspedsi
+       ├── peta-ekspedisi-amba.pdf
+       └── peta-gunung-kawi
+           ├── gsxtrack.json
+           ├── parserkoordinat.sh 
+           ├── nemupusaka.sh
+           ├── titik-penting.txt
+           └── posisipusaka.txt
