@@ -760,7 +760,14 @@ chmod +x kost_slebew.sh
 Program kemudian akan menampilkan menu interaktif yang dapat digunakan untuk mengelola data kost secara keseluruhan.
 
 ### Output / Screenshot
+1. Output Menu Utama
+2. Output Tambah Penghuni
+3. Output Hapus Penghuni
+4. Output Tampilkan Data
+5. Output Update Status
+6. Output Laporan Keuangan
+7. Output Kelola Cron
 ### Kendala
-- kurang paham dalam pembauat header
-- pemakaian cron job yang masih terbalik valik kodenya
+- kurang paham dalam pembuat header
+- pemakaian cron job yang masih terbalik balik kodenya
 - pemilihan percabangan dan looping
