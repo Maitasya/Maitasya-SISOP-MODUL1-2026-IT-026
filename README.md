@@ -394,4 +394,42 @@ soal_3/
     └── history_hapus.csv
 ```   
 ### Langkah Pengerjaan
-#### 1.
+#### 1. Membuat Struktur Folder
+
+Membuat struktur direktori untuk sistem manajemen kost:
+
+```bash
+mkdir soal_3
+cd soal_3
+touch kost_slebew.sh
+mkdir data
+touch data/penghuni.csv
+mkdir log
+touch log/tagihan.log
+mkdir rekap
+touch rekap/laporan_bulanan.txt
+mkdir sampah
+touch sampah/history_hapus.csv
+```
+
+Struktur ini digunakan untuk memisahkan fungsi penyimpanan data, yaitu `data` sebagai database utama, `log` untuk hasil cron job, `rekap` untuk laporan keuangan, dan `sampah` sebagai arsip data yang dihapus.
+
+#### 2. Membuat Template Program Utama (Menu Loop)
+
+Membuat file utama program dengan menu interaktif menggunakan looping agar program terus berjalan hingga pengguna memilih keluar.
+
+```bash
+nano kost_slebew.sh
+```
+
+Kemudian diisi dengan struktur dasar menggunakan while true dan case untuk menangani setiap pilihan menu seperti tambah penghuni, hapus, tampilkan data, update status, laporan, dan cron job.
+
+#### 3. Menjalankan Program
+
+Memberikan izin eksekusi pada file dan menjalankan program:
+
+```bash
+chmod +x kost_slebew.sh
+./kost_slebew.sh
+```
+Program kemudian akan menampilkan menu interaktif yang dapat digunakan untuk mengelola data kost secara keseluruhan.
