@@ -4,7 +4,7 @@
 #### NRP  : 5027251026
 #### SISOP A
 ---
-## SOAL 1 
+## SOAL 1
 ### Deskripsi
 
 Program ini dibuat untuk menganalisis data penumpang kereta KANJ yang tersimpan dalam file passenger.csv menggunakan awk. Program dapat menghitung jumlah penumpang, jumlah gerbong, penumpang tertua, rata-rata usia, dan jumlah penumpang business class.
@@ -49,11 +49,9 @@ Setelah file passenger.csv berhasil diunduh, langkah selanjutnya adalah memastik
 
 #### 4. Menulis Script Awk
 Membuka file menggunakan text editor, dengan  perintah  berikut:
+            nano KANJ.sh 
 
-```bash
-nano KANJ.sh 
-```
-Kemudian menuliskan logika program menggunakan awk untuk:
+        Kemudian menuliskan logika program menggunakan awk untuk:
 #### Awalan 
 ---
 ```bash
@@ -139,9 +137,9 @@ END {
 ```
 ket: 
     
-- BEGIN: Dijalankan sebelum membaca file untuk menyiapkan variabel dan membersihkan argumen agar data siap diproses.
+    - BEGIN: Dijalankan sebelum membaca file untuk menyiapkan variabel dan membersihkan argumen agar data siap diproses.
 
-- END: Dijalankan setelah membaca seluruh file untuk menampilkan hasil akhir analisis, misalnya jumlah penumpang, gerbong unik, atau penumpang tertua.
+    - END: Dijalankan setelah membaca seluruh file untuk menampilkan hasil akhir analisis, misalnya jumlah penumpang, gerbong unik, atau penumpang tertua.
 ### Penjelasan
 ---
 #### A. Menghitung jumlah penumpang
@@ -289,34 +287,29 @@ Banyak sekali error di logika berikut adalah buktinya:
 
 ## SOAL 2
 ### Deskripsi
-Pada soal ini diminta untuk melakukan lakukan proses pencarian lokasi pusaka dengan mengunduh file peta, menemukan tautan tersembunyi, dan melakukan clone repository untuk mendapatkan data koordinat dalam file JSON. Data tersebut kemudian diparsing menggunakan shell script parserkoordinat.sh untuk mengambil informasi penting seperti id, nama lokasi, latitude, dan longitude ke dalam file terstruktur. Selanjutnya, posisi pusaka ditentukan dengan menghitung titik tengah dari dua koordinat diagonal menggunakan script nemupusaka.sh dan hasilnya disimpan dalam file posisipusaka.txt.
+Pada soal ini dilakukan proses pencarian lokasi pusaka dengan mengunduh file peta, menemukan tautan tersembunyi, dan melakukan clone repository untuk mendapatkan data koordinat dalam file JSON. Data tersebut kemudian diparsing menggunakan shell script parserkoordinat.sh untuk mengambil informasi penting seperti id, nama lokasi, latitude, dan longitude ke dalam file terstruktur. Selanjutnya, posisi pusaka ditentukan dengan menghitung titik tengah dari dua koordinat diagonal menggunakan script nemupusaka.sh dan hasilnya disimpan dalam file posisipusaka.txt.
 
 ### Struktur Repository
 ```bash 
 soal_2
 └── ekspedsi
-       ├── peta-ekspedisi-amba.pdf
-       └── peta-gunung-kawi
-           ├── gsxtrack.json
-           ├── parserkoordinat.sh 
-           ├── nemupusaka.sh
-           ├── titik-penting.txt
-           └── posisipusaka.txt
+       ├── peta-ekspedisi-amba.pdf
+       └── peta-gunung-kawi
+           ├── gsxtrack.json
+           ├── parserkoordinat.sh 
+           ├── nemupusaka.sh
+           ├── titik-penting.txt
+           └── posisipusaka.txt
 ```
 
 ### Langkah Pengerjaan
 #### 1. Membuat Struktur Folder
 Membuat struktur direktori untuk menyimpan file-file ekspedisi:
-<<<<<<< HEAD
-
-=======
->>>>>>> f51eba5 (update sebelum pull)
 ```bash 
 mkdir soal_2
 cd soal_2
 mkdir ekspedsi
 cd ekspedsi
-mkdir peta-ekspedisi-amba.pdf
 mkdir peta-gunung-kawi
 cd peta-gunung-kawi
 touch gsxtrack.json
@@ -327,10 +320,6 @@ touch posisipusaka.txt
 ```
 #### 2. Menyiapkan Environment dan Tools
 Membuat virtual environment Python, mengaktifkannya, dan menginstall tools `gdown` untuk mengunduh file dari Google Drive:
-<<<<<<< HEAD
-
-=======
->>>>>>> f51eba5 (update sebelum pull)
 ```bash 
 sudo apt update
 sudo apt install python3-pip python3-venv
@@ -340,112 +329,30 @@ pip install gdown
 ```
 #### 3. Mengunduh File Peta Ekspedisi
 Mengunduh file PDF peta ekspedisi dan menyimpannya ke folder `ekspedisi`:
-<<<<<<< HEAD
-
-=======
->>>>>>> f51eba5 (update sebelum pull)
 ```bash 
 gdown https://drive.google.com/uc?id=1q10pHSC3KFfvEiCN3V6PTroPR7YGHF6Q
 ```
 
 #### 4. Menginstall Git dan Clone Repository Tautan Tersembunyi
 Menginstall Git dan meng-clone repository untuk mendapatkan data JSON titik lokasi:
-<<<<<<< HEAD
-
-```bash 
-strings peta-ekspedisi-amba.pdf
-=======
 ```bash 
 sudo apt install git
->>>>>>> f51eba5 (update sebelum pull)
 git clone https://github.com/pocongcyber77/peta-gunung-kawi.git
 cd peta-gunung-kawi
 ```
-link `https://github.com/pocongcyber77/peta-gunung-kawi.git` di dapat setelah perintah `strings peta-ekspedisi-amba.pdf` dijalankan.
 
 #### 5. Membuat Script Parser Koordinat
 Membuat dan menjalankan shell script `parserkoordinat.sh` untuk mengekstrak data `id`, `site_name`, `latitude`, dan `longitude` dari file `gsxtrack.json` dan menyimpannya ke `titik-penting.txt`:
-<<<<<<< HEAD
-
-```bash 
-nano parserkoordinat.sh
-```
-isi scriptnya sebagai berikut:
-
-```bash
-#!/bin/bash
-
-INPUT_FILE="gsxtrack.json"
-OUTPUT_FILE="titik-penting.txt"
-
-# Hapus file lama
-> $OUTPUT_FILE
-
-# Parsing data
-awk '
-BEGIN { FS="[:,]"; OFS=", " }
-/"id"/ { gsub(/[ ]/,"",$2); id=$2 }
-/site_name/ { gsub(/^[ ]+|[ ]+$/,"",$2); site_name=$2 }
-/latitude/ { gsub(/[ ]/,"",$2); lat=$2 }
-/longitude/ { gsub(/[ ]/,"",$2); lon=$2; print id, site_name, l>
-' $INPUT_FILE
-
-# Konfirmasi selesai
-echo "Parsing selesai. Data disimpan di $OUTPUT_FILE"
-```
-Script ini digunakan untuk mengekstrak dan merapikan data koordinat penting dari file JSON (gsxtrack.json) ke dalam format teks yang mudah dibaca (titik-penting.txt). Yang pertama script membersihkan file output lama agar hasil baru tidak menumpuk, lalu menggunakan awk untuk membaca setiap baris JSON dan mencari field id, site_name, latitude, dan longitude; setiap nilai yang ditemukan dibersihkan dari spasi atau karakter tambahan,  ketika longitude ditemukan, script mencetak semua data yang sudah dikumpulkan (id, site_name, latitude, longitude) ke file output. Akhirnya script memberi konfirmasi bahwa proses parsing selesai dan file teks siap digunakan untuk tahap selanjutnya.
-
-untuk menjalankannya maka gunakan printah berikut ini:
-
-```bash
-=======
 ```bash 
 nano parserkoordinat.sh   # menulis script
->>>>>>> f51eba5 (update sebelum pull)
 chmod +x parserkoordinat.sh
 ./parserkoordinat.sh
 cat titik-penting.txt
 ```
-
 #### 6. Membuat dan Menjalankan Script Menentukan Titik Pusaka
 Menulis shell script `nemupusaka.sh` untuk menghitung titik tengah diagonal dari koordinat dan menyimpannya ke `posisipusaka.txt`:
-<<<<<<< HEAD
-
-```bash 
-nano nemupusaka.sh
-```
-isi scriptnya sebagai berikut:
-
-```bash
-#!/bin/bash
-
-# baca koordinat dari titik-penting.txt
-lat1=$(awk -F"," 'NR==1 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
-lon1=$(awk -F"," 'NR==1 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
-
-lat2=$(awk -F"," 'NR==3 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
-lon2=$(awk -F"," 'NR==3 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
-
-# hitung titik tengah menggunakan bc
-mid_lat=$(echo "scale=6; ($lat1 + $lat2)/2" | bc -l)
-mid_lon=$(echo "scale=6; ($lon1 + $lon2)/2" | bc -l)
-
-# simpan ke posisipusaka.txt dengan format yang diminta
-echo "Koordinat Pusaka Ditemukan:" > posisipusaka.txt
-echo "Latitude: $mid_lat" >> posisipusaka.txt
-echo "Longitude: $mid_lon" >> posisipusaka.txt
-
-echo "Lokasi pusaka tersimpan di posisipusaka.txt"
-```
-Script `nemupusaka.sh` ini digunakan untuk menghitung titik tengah pusaka berdasarkan koordinat empat titik yang sudah diekstrak sebelumnya (`titik-penting.txt`). Langkah yang pertama script akan membaca `latitude` dan `longitude` dari empat titik (kolom 3 dan 4 di file teks) menggunakan `awk` dan menyimpannya ke variabel, kemudian menghitung titik tengah diagonal dengan rumus rata-rata dari koordinat yang berseberangan untuk menentukan lokasi persis pusaka, hasil perhitungan disimpan dalam variabel `pusaka_lat` dan `pusaka_lon`; terakhir script menulis hasil koordinat pusaka ke file `posisipusaka.txt` dan memberi konfirmasi bahwa lokasi sudah tersimpan, sehingga data ini siap digunakan untuk tahap ekspedisi selanjutnya.
-
-untuk menjalankannya maka gunakan printah berikut ini:
-
-```bash
-=======
 ```bash 
 nano nemupusaka.sh        
->>>>>>> f51eba5 (update sebelum pull)
 chmod +x nemupusaka.sh
 ./nemupusaka.sh
 cat posisipusaka.txt
@@ -456,9 +363,9 @@ cat posisipusaka.txt
 <img width="1916" height="278" alt="Screenshot 2026-03-19 082809" src="https://github.com/user-attachments/assets/da7d4e05-039e-42e2-8d20-417a4209c9c6" />
    
 2. File `posisipusaka.txt`
-<img width="1919" height="232" alt="Screenshot 2026-03-19 104838" src="https://github.com/user-attachments/assets/5b4d498d-756f-4739-98a0-ec55946d1f8a" />
+<img width="1899" height="259" alt="Screenshot 2026-03-19 082921" src="https://github.com/user-attachments/assets/c750e15f-a32e-495c-afac-d9a4f1903bca" />
 
-### Kendala
+   ### Kendala
 -Susah memahami soal
 
 -Banyak sekali error di logika
@@ -478,13 +385,13 @@ Pada soal ini di minta untuk membuat sistem manajemen kost berbasis CLI mengguna
 soal_3/
 ├── kost_slebew.sh          
 ├── data
-│   └── penghuni.csv
+│   └── penghuni.csv
 ├── log
-│   └── tagihan.log
+│   └── tagihan.log
 ├── rekap
-│   └── laporan_bulanan.txt
+│   └── laporan_bulanan.txt
 └── sampah
     └── history_hapus.csv
 ```   
 ### Langkah Pengerjaan
-#### 1. 
+#### 1.
