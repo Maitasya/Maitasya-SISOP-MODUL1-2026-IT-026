@@ -307,7 +307,7 @@ soal_2
 
 ### Langkah Pengerjaan
 #### 1. Membuat Struktur Folder
-Membuat struktur direktori untuk menyimpan file-file ekspedisi:
+Pertama membuat struktur direktori untuk menyimpan file-file ekspedisi:
 ```bash 
 mkdir soal_2
 cd soal_2
@@ -322,7 +322,8 @@ touch titik-penting.txt
 touch posisipusaka.txt
 ```
 #### 2. Menyiapkan Environment dan Tools
-Membuat virtual environment Python, mengaktifkannya, dan menginstall tools `gdown` untuk mengunduh file dari Google Drive:
+selanjutnya membuat virtual environment Python, mengaktifkannya, dan menginstall tools `gdown` untuk mengunduh file dari Google Drive:
+
 ```bash 
 sudo apt update
 sudo apt install python3-pip python3-venv
@@ -331,13 +332,15 @@ source env/bin/activate
 pip install gdown
 ```
 #### 3. Mengunduh File Peta Ekspedisi
-Mengunduh file PDF peta ekspedisi dan menyimpannya ke folder `ekspedisi`:
+Langkah selanjutnya mengunduh file PDF peta ekspedisi dan menyimpannya ke folder `ekspedisi` yang natinya akan digunakan pada proses eksekusi:
+
 ```bash 
 gdown https://drive.google.com/uc?id=1q10pHSC3KFfvEiCN3V6PTroPR7YGHF6Q
 ```
 
 #### 4. Menginstall Git dan Clone Repository Tautan Tersembunyi
-Menginstall Git dan meng-clone repository untuk mendapatkan data JSON titik lokasi:
+Lanjut menginstall Git dan meng-clone repository untuk mendapatkan data JSON titik lokasi:
+
 ```bash 
 sudo apt install git
 git clone https://github.com/pocongcyber77/peta-gunung-kawi.git
@@ -345,15 +348,18 @@ cd peta-gunung-kawi
 ```
 
 #### 5. Membuat Script Parser Koordinat
-Membuat dan menjalankan shell script `parserkoordinat.sh` untuk mengekstrak data `id`, `site_name`, `latitude`, dan `longitude` dari file `gsxtrack.json` dan menyimpannya ke `titik-penting.txt`:
+Langkah berikutnya yaitu membuat dan menjalankan shell script `parserkoordinat.sh` untuk mengekstrak data `id`, `site_name`, `latitude`, dan `longitude` dari file `gsxtrack.json` dan menyimpannya ke `titik-penting.txt`:
+
 ```bash 
-nano parserkoordinat.sh   # menulis script
+nano parserkoordinat.sh
+```
+
 chmod +x parserkoordinat.sh
 ./parserkoordinat.sh
 cat titik-penting.txt
 ```
 #### 6. Membuat dan Menjalankan Script Menentukan Titik Pusaka
-Menulis shell script `nemupusaka.sh` untuk menghitung titik tengah diagonal dari koordinat dan menyimpannya ke `posisipusaka.txt`:
+Lanjutan dari proses diatas yaitu menulis shell script `nemupusaka.sh` untuk menghitung titik tengah diagonal dari koordinat dan menyimpannya ke `posisipusaka.txt`:
 ```bash 
 nano nemupusaka.sh        
 chmod +x nemupusaka.sh
@@ -369,15 +375,11 @@ cat posisipusaka.txt
 <img width="1899" height="259" alt="Screenshot 2026-03-19 082921" src="https://github.com/user-attachments/assets/c750e15f-a32e-495c-afac-d9a4f1903bca" />
 
    ### Kendala
--Susah memahami soal
-
--Banyak sekali error di logika
-
--Sering typo saat menuliskan perintah
-
--Pas awal tidak tahu cara download file dari Google Drive menggunakan gdown atau cara membuat virtual environment
-
--Parsing JSON secara manual
+- Kesulitan dalam memahami instruksi soal sehingga membutuhkan waktu lebih lama untuk menentukan langkah pengerjaan.
+- Banyak terjadi error pada logika script sehingga program tidak langsung menghasilkan output yang sesuai.
+- Sering terjadi typo saat menuliskan perintah di terminal yang menyebabkan command tidak dapat dijalankan.
+- Pada awal pengerjaan belum memahami cara mengunduh file dari Google Drive menggunakan gdown serta cara membuat virtual environment Python.
+- Parsing file JSON secara manual cukup sulit karena harus menyesuaikan format data agar dapat diolah menggunakan shell script.
 
 ### Kendala
 - kurang paham dalam pembuat header
