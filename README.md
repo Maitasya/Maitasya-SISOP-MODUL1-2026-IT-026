@@ -378,6 +378,7 @@ echo "Parsing selesai. Data disimpan di $OUTPUT_FILE"
 ```
 Script ini membaca data dari file `gsxtrack.json` kemudian melakukan parsing menggunakan `awk` untuk mengambil informasi penting berupa id, site_name, latitude, dan longitude. Data yang diperoleh dibersihkan dari spasi yang tidak diperlukan agar formatnya rapi dan mudah diolah. Hasil parsing kemudian disimpan ke dalam file `titik-penting.txt` sebagai daftar titik koordinat penting.
 
+perintah untuk menjalakan program:
 ```bash
 chmod +x parserkoordinat.sh
 ./parserkoordinat.sh
@@ -413,6 +414,7 @@ echo "Lokasi pusaka tersimpan di posisipusaka.txt"
 ```
 Pada script ini dilakukan pembacaan koordinat dari file `titik-penting.txt` menggunakan `awk`, kemudian dihitung titik tengah dari dua koordinat diagonal menggunakan rumus yang telah diberikan, dan hasilnya disimpan ke dalam file `posisipusaka.txt` sebagai posisi pusaka.
 
+perintah untuk menjalakan program:
 ```bash
 chmod +x nemupusaka.sh
 ./nemupusaka.sh
