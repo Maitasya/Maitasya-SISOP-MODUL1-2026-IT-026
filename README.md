@@ -138,9 +138,9 @@ END {
 ```
 ket: 
     
-    - BEGIN: Dijalankan sebelum membaca file untuk menyiapkan variabel dan membersihkan argumen agar data siap diproses.
+- BEGIN: Dijalankan sebelum membaca file untuk menyiapkan variabel dan membersihkan argumen agar data siap diproses.
 
-    - END: Dijalankan setelah membaca seluruh file untuk menampilkan hasil akhir analisis, misalnya jumlah penumpang, gerbong unik, atau penumpang tertua.
+- END: Dijalankan setelah membaca seluruh file untuk menampilkan hasil akhir analisis, misalnya jumlah penumpang, gerbong unik, atau penumpang tertua.
 ### Penjelasan
 ---
 #### A. Menghitung jumlah penumpang
@@ -277,16 +277,15 @@ Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan d
 <img width="1710" height="158" alt="Screenshot 2026-03-18 194258" src="https://github.com/user-attachments/assets/2b1c9ab1-a7b8-4f23-ab92-336cf5a74988" />
 
 ### Kendala
-Banyak sekali error di logika berikut adalah buktinya:
-<img width="978" height="633" alt="image" src="https://github.com/user-attachments/assets/4865d733-e5e6-4a83-85af-846c036d0c05" />
 - Salah menggunakan struktur percabangan karena kemarin abis baca modul bagian shell scripting (bash).
 - Perhitungan gerbong unik tidak akurat karena data belum dibersihkan sepenuhnya (spasi atau karakter tersembunyi masih terbaca sebagai data berbeda).
 - Nilai umur tidak terbaca dengan benar akibat kesalahan parsing kolom atau belum dilakukan konversi ke numerik.
 - Kesalahan dalam pengambilan field menyebabkan seluruh baris terbaca sebagai satu variabel.
 - Perubahan kode belum konsisten atau belum menyentuh bagian inti permasalahan (logika utama masih salah).
----
 
-Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI untuk membantu memahami konsep yang begitu saya pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c35a6f-2f88-8324-b8bd-f5b850b8f8d2
+Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI untuk membantu memahami konsep yang begitu saya belum pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c35a6f-2f88-8324-b8bd-f5b850b8f8d2
+
+---
 
 ## SOAL 2
 ### Deskripsi
@@ -353,15 +352,68 @@ Langkah berikutnya yaitu membuat dan menjalankan shell script `parserkoordinat.s
 ```bash 
 nano parserkoordinat.sh
 ```
+scriptnya :
+```bash
+#!/bin/bash
 
+INPUT_FILE="gsxtrack.json"
+OUTPUT_FILE="titik-penting.txt"
+
+# Hapus file lama
+> $OUTPUT_FILE
+
+# Parsing data
+awk '
+BEGIN { FS="[:,]"; OFS=", " }
+/"id"/ { gsub(/[ ]/,"",$2); id=$2 }
+/site_name/ { gsub(/^[ ]+|[ ]+$/,"",$2); site_name=$2 }
+/latitude/ { gsub(/[ ]/,"",$2); lat=$2 }
+/longitude/ { gsub(/[ ]/,"",$2); lon=$2; print id, site_name, lat, lon >> "'">
+' $INPUT_FILE
+
+# Konfirmasi selesai
+echo "Parsing selesai. Data disimpan di $OUTPUT_FILE"
+```
+Script ini membaca data dari file `gsxtrack.json` kemudian melakukan parsing menggunakan `awk` untuk mengambil informasi penting berupa id, site_name, latitude, dan longitude. Data yang diperoleh dibersihkan dari spasi yang tidak diperlukan agar formatnya rapi dan mudah diolah. Hasil parsing kemudian disimpan ke dalam file `titik-penting.txt` sebagai daftar titik koordinat penting.
+
+perintah untuk menjalakan program:
+```bash
 chmod +x parserkoordinat.sh
 ./parserkoordinat.sh
 cat titik-penting.txt
 ```
 #### 6. Membuat dan Menjalankan Script Menentukan Titik Pusaka
 Lanjutan dari proses diatas yaitu menulis shell script `nemupusaka.sh` untuk menghitung titik tengah diagonal dari koordinat dan menyimpannya ke `posisipusaka.txt`:
+
 ```bash 
-nano nemupusaka.sh        
+nano nemupusaka.sh
+```
+scriptnya:
+ ``` bash
+#!/bin/bash
+
+# baca koordinat dari titik-penting.txt
+lat1=$(awk -F"," 'NR==1 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
+lon1=$(awk -F"," 'NR==1 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
+
+lat2=$(awk -F"," 'NR==3 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
+lon2=$(awk -F"," 'NR==3 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
+
+# hitung titik tengah menggunakan bc
+mid_lat=$(echo "scale=6; ($lat1 + $lat2)/2" | bc -l)
+mid_lon=$(echo "scale=6; ($lon1 + $lon2)/2" | bc -l)
+
+# simpan ke posisipusaka.txt dengan format yang diminta
+echo "Koordinat Pusaka Ditemukan:" > posisipusaka.txt
+echo "Latitude: $mid_lat" >> posisipusaka.txt
+echo "Longitude: $mid_lon" >> posisipusaka.txt
+
+echo "Lokasi pusaka tersimpan di posisipusaka.txt"
+```
+Pada script ini dilakukan pembacaan koordinat dari file `titik-penting.txt` menggunakan `awk`, kemudian dihitung titik tengah dari dua koordinat diagonal menggunakan rumus yang telah diberikan, dan hasilnya disimpan ke dalam file `posisipusaka.txt` sebagai posisi pusaka.
+
+perintah untuk menjalakan program:
+```bash
 chmod +x nemupusaka.sh
 ./nemupusaka.sh
 cat posisipusaka.txt
@@ -381,7 +433,432 @@ cat posisipusaka.txt
 - Pada awal pengerjaan belum memahami cara mengunduh file dari Google Drive menggunakan gdown serta cara membuat virtual environment Python.
 - Parsing file JSON secara manual cukup sulit karena harus menyesuaikan format data agar dapat diolah menggunakan shell script.
 
+Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI untuk membantu memahami konsep yang begitu saya belum pahami serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c37207-c668-839e-bade-a90f7d681bc1
+
+---
+## SOAL 3 
+### Deskripsi
+Pada soal ini di minta untuk membuat sistem manajemen kost berbasis CLI menggunakan Bash dan AWK. Program memungkinkan pengguna menambahkan penghuni dengan validasi input, menghapus dan mengarsipkan data penghuni, menampilkan daftar penghuni rapi, memperbarui status, mencetak laporan keuangan otomatis, serta mengatur cron job pengingat tagihan. Seluruh data tersimpan terstruktur di folder data, rekap, sampah, dan log, sementara menu interaktif terus looping hingga pengguna memilih keluar, sehingga manajemen kost dapat dilakukan efisien melalui terminal.
+
+### Struktur Repository
+```bash
+soal_3/
+├── kost_slebew.sh          
+├── data
+│   └── penghuni.csv
+├── log
+│   └── tagihan.log
+├── rekap
+│   └── laporan_bulanan.txt
+└── sampah
+    └── history_hapus.csv
+```   
+### Langkah Pengerjaan
+#### 1. Membuat Struktur Folder
+Langkah pertama membuat struktur direktori untuk sistem manajemen kost:
+
+```bash
+mkdir soal_3
+cd soal_3
+touch kost_slebew.sh
+mkdir data
+touch data/penghuni.csv
+mkdir log
+touch log/tagihan.log
+mkdir rekap
+touch rekap/laporan_bulanan.txt
+mkdir sampah
+touch sampah/history_hapus.csv
+```
+
+Struktur ini digunakan untuk memisahkan fungsi penyimpanan data, yaitu `data` sebagai database utama, `log` untuk hasil cron job, `rekap` untuk laporan keuangan, dan `sampah` sebagai arsip data yang dihapus.
+
+#### 2. Membuat Template Program Utama (Menu Loop)
+Lalu membuat file utama program dengan menu interaktif menggunakan looping agar program terus berjalan hingga pengguna memilih keluar.
+
+```bash
+nano kost_slebew.sh
+```
+
+Kemudian diisi dengan struktur dasar menggunakan while true dan case untuk menangani setiap pilihan menu seperti tambah penghuni, hapus, tampilkan data, update status, laporan, dan cron job.
+
+script keseluruhan sebagai berikut:
+
+A. Inisialisasi Variabel dan File
+
+```bash
+DATA="data/penghuni.csv"
+LOG="log/tagihan.log"
+REKAP="rekap/laporan_bulanan.txt"
+HISTORY="sampah/history_hapus.csv"
+
+mkdir -p data log rekap sampah
+touch $DATA $LOG $REKAP $HISTORY
+```
+Pada bagian ini program menentukan lokasi file yang akan digunakan untuk menyimpan data penghuni, log, laporan, dan arsip. Setelah itu, program memastikan semua folder dan file tersedia agar tidak terjadi error saat pertama kali dijalankan.
+
+B. Mode Cron (Pengecekan Tagihan)
+
+``bash 
+if [[ "$1" == "--check-tagihan" ]]; then
+awk -F',' '
+function rupiah(x){
+    return "Rp" sprintf("%'\''d", x)
+}
+$5=="Menunggak" {
+    printf "[%s] TAGIHAN: %s (Kamar %s Menunggak %s)\n",
+    strftime("%Y-%m-%d %H:%M:%S"), $1, $2, rupiah($3)
+}
+' $DATA >> $LOG
+exit
+fi
+```
+Bagian ini dijalankan ketika script dipanggil oleh cron dengan parameter khusus untuk mengecek tagihan. Program akan mencari penghuni yang menunggak lalu mencatatnya ke dalam file log dengan format waktu dan nominal dalam rupiah.
+
+C. Perulangan Menu Utama, Tampilan Header dan Menu
+
+```bash
+while true
+do
+clear
+
+echo "██╗  ██╗ ██████╗ ███████╗████████╗    ███████╗██╗     ███████╗██████╗ ███████╗██╗    ██╗"
+echo "██║ ██╔╝██╔═══██╗██╔════╝╚══██╔══╝    ██╔════╝██║     ██╔════╝██╔══██╗██╔════╝██║    ██║"
+echo "█████╔╝ ██║   ██║███████╗   ██║       ███████╗██║     █████╗  ██████╔╝█████╗  ██║ █╗ ██║"
+echo "██╔═██╗ ██║   ██║╚════██║   ██║       ╚════██║██║     ██╔══╝  ██╔══██╗██╔══╝  ██║███╗██║"
+echo "██║  ██╗╚██████╔╝███████║   ██║       ███████║███████╗███████╗██████╔╝███████╗╚███╔███╔╝"
+echo "╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝       ╚══════╝╚══════╝╚══════╝╚═════╝ ╚══════╝ ╚══╝╚══╝ "
+
+echo "=================================="
+echo "     SISTEM MANAJEMEN KOST SLEBEW"
+echo "=================================="
+echo "ID | OPTION"
+echo "----------------------------------"
+echo "1  | Tambah Penghuni Baru"
+echo "2  | Hapus Penghuni"
+echo "3  | Tampilkan Daftar Penghuni"
+echo "4  | Update Status Penghuni"
+echo "5  | Cetak Laporan Keuangan"
+echo "6  | Kelola Cron"
+echo "7  | Exit Program"
+echo "=================================="
+read -p "Enter option [1-7]: " opsi
+```
+Bagian ini digunakan untuk membuat program berjalan terus menerus menggunakan perulangan tanpa batas. Program menampilkan tampilan menu utama lengkap dengan pilihan fitur yang tersedia untuk pengguna. Setelah itu, program membaca input pilihan user untuk menentukan aksi selanjutnya.
+
+D. Percabangan Menu
+
+```bash
+case $opsi in
+    1) ;;
+    2) ;;
+    3) ;;
+    4) ;;
+    5) ;;
+    6) ;;
+    7) exit ;;
+    *) echo "Pilihan tidak valid" ;;
+esac
+```
+Percabangan ini digunakan untuk menentukan alur program berdasarkan input yang dipilih oleh pengguna pada menu utama. Setiap angka akan menjalankan fitur tertentu seperti tambah, hapus, tampilkan data, hingga cron, sedangkan input yang tidak sesuai akan dianggap tidak valid.
+
+E.Fitur Tambah Penghuni
+
+```bash
+echo "=================================="
+echo "        TAMBAH PENGHUNI"
+echo "=================================="
+
+read -p "Masukkan nama: " nama
+read -p "Masukkan kamar: " kamar
+read -p "Masukkan harga sewa: " harga
+read -p "Masukkan tanggal masuk (YYYY-MM-DD): " tanggal
+read -p "Masukkan status awal (Aktif/Menunggak): " status
+
+# Validasi harga
+if ! [[ $harga =~ ^[0-9]+$ ]]; then
+    echo "Harga harus angka!"
+    read -p "Tekan ENTER..."
+    continue
+fi
+
+# Validasi kamar unik
+if grep -q ",$kamar," $DATA; then
+    echo "Kamar sudah terisi!"
+    read -p "Tekan ENTER..."
+    continue
+fi
+# Validasi tanggal format
+if ! date -d "$tanggal" "+%Y-%m-%d" >/dev/null 2>&1; then
+    echo "Format tanggal salah!"
+    read -p "Tekan ENTER..."
+    continue
+fi
+
+# Validasi tanggal masa depan
+today=$(date +%F)
+if [[ "$tanggal" > "$today" ]]; then
+    echo "Tanggal tidak boleh di masa depan!"
+    read -p "Tekan ENTER..."
+    continue
+fi
+
+# Validasi status
+status=$(echo "$status" | tr '[:upper:]' '[:lower:]')
+if [[ "$status" != "aktif" && "$status" != "menunggak" ]]; then
+    echo "Status harus Aktif/Menunggak"
+    read -p "Tekan ENTER..."
+    continue
+fi
+
+status=$(echo "$status" | sed 's/.*/\u&/')
+echo "$nama,$kamar,$harga,$tanggal,$status" >> $DATA
+
+echo "[✓] penghuni \"$nama\" berhasil ditambahkan ke kamar \"$kamar\" dengan status \"$status\""
+read -p "Tekan [ENTER] untuk kembali..."
+;;
+```
+Fitur ini digunakan untuk menambahkan penghuni baru dengan meminta input berupa nama, kamar, harga sewa, tanggal masuk, dan status awal. Program kemudian melakukan berbagai validasi seperti memastikan harga berupa angka, kamar tidak duplikat, tanggal valid dan tidak di masa depan, serta status sesuai aturan sebelum akhirnya menyimpan data ke dalam file CSV.
+
+F. Fitur Hapus Penghuni
+
+```bash
+echo "=================================="
+echo "        HAPUS PENGHUNI"
+echo "=================================="
+
+read -p "Masukkan nama penghuni yang akan dihapus: " nama
+
+data=$(grep "^$nama," $DATA)
+
+if [ -z "$data" ]; then
+    echo "Data tidak ditemukan!"
+    read -p "Tekan ENTER..."
+    continue
+fi
+
+tanggal=$(date +%F)
+
+echo "$data,$tanggal" >> $HISTORY
+
+grep -v "^$nama," $DATA > temp.csv
+mv temp.csv $DATA
+
+echo "[✔] Data penghuni \"$nama\" berhasil diarsipkan ke sampah/history_hapus.csv dan dihapus dari sistem."
+read -p "Tekan [ENTER] untuk kembali..."
+;;
+```
+Fitur ini digunakan untuk menghapus data penghuni berdasarkan nama yang diinputkan oleh pengguna. Sebelum dihapus dari database utama, data tersebut terlebih dahulu dipindahkan ke file arsip dengan tambahan tanggal penghapusan agar riwayat tetap tersimpan.
+
+G. Fitur Tampilkan Data
+
+```bash
+echo "=================================="
+echo "DAFTAR PENGHUNI KOST SLEBEW"
+echo "=================================="
+
+awk -F',' '
+function rupiah(x){
+    return "Rp" sprintf("%'\''d", x)
+}
+BEGIN {
+    printf "No | Nama | Kamar | Harga Sewa | Status\n"
+    print "----------------------------------------------------------------"
+}
+{
+    printf "%d | %s | %s | %s | %s\n", NR, $1, $2, rupiah($3), $5
+    if ($5=="Aktif") aktif++
+    else menunggak++
+}
+END {
+    print "----------------------------------------------------------------"
+    printf "Total: %d penghuni | Aktif: %d | Menunggak: %d\n", NR, aktif, menunggak
+}
+' $DATA
+
+echo "=================================="
+read -p "Tekan [ENTER] untuk kembali..."
+;;
+```
+Fitur ini digunakan untuk menampilkan seluruh data penghuni dalam bentuk tabel yang rapi dan mudah dibaca di terminal. Selain menampilkan data, program juga menghitung jumlah penghuni berdasarkan status Aktif dan Menunggak serta menampilkan totalnya di bagian akhir.
+
+H. Fitur Update Status
+
+```bash
+echo "=================================="
+echo "        UPDATE STATUS"
+echo "=================================="
+
+read -p "Masukkan Nama Penghuni: " nama
+read -p "Masukkan Status Baru (Aktif/Menunggak): " status
+
+status=$(echo "$status" | tr '[:upper:]' '[:lower:]')
+
+if [[ "$status" != "aktif" && "$status" != "menunggak" ]]; then
+    echo "Status tidak valid!"
+    read -p "Tekan ENTER..."
+    continue
+fi
+
+status=$(echo "$status" | sed 's/.*/\u&/')
+
+awk -F',' -v nama="$nama" -v status="$status" '
+BEGIN{OFS=","}
+{
+    if ($1==nama) $5=status
+    print
+}
+' $DATA > temp.csv
+
+mv temp.csv $DATA
+echo "[✓] Status $nama berhasil diubah menjadi: $status"
+read -p "Tekan [ENTER] untuk kembali..."
+;;
+```
+
+Fitur ini digunakan untuk memperbarui status penghuni berdasarkan nama yang dimasukkan oleh pengguna. Program akan memvalidasi input status agar sesuai aturan, kemudian mengubah data langsung di file menggunakan AWK sehingga perubahan tersimpan dengan rapi.
+
+I. Fitur Laporan Keuangan
+
+```bash
+echo "=================================="
+echo "LAPORAN KEUANGAN KOST SLEBEW"
+echo "=================================="
+
+awk -F',' '
+function rupiah(x){
+    return "Rp" sprintf("%'\''d", x)
+}
+{
+    if ($5=="Aktif") aktif+=$3
+    else {
+        menunggak+=$3
+        list=list sprintf("- %s (Kamar %s)\n", $1, $2)
+    }
+    total++
+}
+END {
+    printf "Total pemasukan (Aktif) : %s\n", rupiah(aktif)
+    printf "Total tunggakan        : %s\n", rupiah(menunggak)
+    printf "Jumlah kamar terisi    : %d\n", total
+    print "--------------------------------------------------------------"
+    if (list=="")
+        print "Daftar penghuni menunggak: Tidak ada tunggakan."
+    else {
+        print "Daftar penghuni menunggak:"
+        printf "%s", list
+ }
+}
+' $DATA | tee $REKAP
+
+echo "=================================="
+echo "[✔] Laporan berhasil disimpan ke rekap/laporan_bulanan.txt"
+read -p "Tekan [ENTER] untuk kembali..."
+;;
+```
+Fitur ini digunakan untuk menghitung kondisi keuangan kost berdasarkan data penghuni yang tersimpan di sistem. Program akan memisahkan pemasukan dari penghuni aktif dan tunggakan dari penghuni menunggak, lalu menampilkan serta menyimpan hasil laporan ke dalam file rekap.
+
+J. Fitur Kelola Cron
+
+```bash
+while true
+do
+clear
+echo "=================================="
+echo "MENU KELOLA CRON"
+echo "=================================="
+echo "1. Lihat Cron Job Aktif"
+echo "2. Daftarkan Cron Job Pengingat"
+echo "3. Hapus Cron Job Pengingat"
+echo "4. Kembali"
+echo "=================================="
+read -p "Pilih [1-4]: " c
+
+case $c in
+1)
+echo "___Daftar Cron Job Pengingat Tagihan___"
+crontab -l 2>/dev/null | grep kost_slebew.sh
+read -p "Tekan [ENTER]..."
+;;
+
+2)
+read -p "Masukkan Jam (0-23): " jam
+read -p "Masukkan Menit (0-59): " menit
+
+(crontab -l 2>/dev/null | grep -v kost_slebew.sh; echo "$menit $jam * * * $(pwd)/kost_slebew.sh --check-tagihan") | cro>
+
+echo "[✔] Cron job berhasil ditambahkan (auto replace jika ada)."
+read -p "Tekan ENTER..."
+;;
+
+3)
+crontab -l 2>/dev/null | grep -v kost_slebew.sh | crontab -
+echo "[✔] Cron job pengingat tagihan berhasil dihapus."
+read -p "Tekan ENTER..."
+;;
+
+4) break;;
+*)
+echo "Pilihan tidak valid"
+read
+;;
+esac
+done
+;;
+```
+Fitur ini digunakan untuk mengelola cron job sebagai pengingat otomatis tagihan penghuni kost. Pengguna dapat melihat, menambahkan, atau menghapus jadwal cron, dan sistem akan memastikan hanya satu cron aktif dengan cara mengganti yang lama jika ditambahkan yang baru.
+
+#### 3. Menjalankan Program
+
+Memberikan izin eksekusi pada file dan menjalankan program:
+
+```bash
+chmod +x kost_slebew.sh
+./kost_slebew.sh
+```
+Program kemudian akan menampilkan menu interaktif yang dapat digunakan untuk mengelola data kost secara keseluruhan.
+
+### Output / Screenshot
+
+1. Output Menu Utama
+<img width="1912" height="604" alt="Screenshot 2026-03-25 183343" src="https://github.com/user-attachments/assets/c7d2ee4d-e239-47fc-ad04-f6d3ec6ee7c3" />
+
+2. Output Tambah Penghuni
+<img width="1915" height="338" alt="Screenshot 2026-03-25 183542" src="https://github.com/user-attachments/assets/b6969c7c-2e3e-4a06-b04d-74fd9c2c7adc" />
+
+3. Output Tampilkan Data
+<img width="1915" height="449" alt="Screenshot 2026-03-25 183633" src="https://github.com/user-attachments/assets/19d3a89d-4133-494f-9246-102e4d031dcf" />
+
+4. Output Hapus Penghuni
+<img width="1918" height="440" alt="Screenshot 2026-03-25 183659" src="https://github.com/user-attachments/assets/7e5fe313-24d3-4da1-a040-b9966cedd2e7" />
+
+<img width="1915" height="388" alt="Screenshot 2026-03-25 184327" src="https://github.com/user-attachments/assets/8370827c-c019-46d6-86cc-da2bbf120f10" />
+
+5. Output Update Status
+<img width="1912" height="295" alt="Screenshot 2026-03-25 183727" src="https://github.com/user-attachments/assets/b4130b16-f618-4878-9e93-ca9c63afb3f1" />
+
+<img width="1915" height="388" alt="Screenshot 2026-03-25 184327" src="https://github.com/user-attachments/assets/8370827c-c019-46d6-86cc-da2bbf120f10" />
+
+6. Output Laporan Keuangan
+<img width="1911" height="411" alt="Screenshot 2026-03-25 183753" src="https://github.com/user-attachments/assets/5a91bb28-9c4a-4748-8a29-e6e4929ae889" />
+
+7. Output Kelola Cron
+<img width="1914" height="447" alt="Screenshot 2026-03-25 183851" src="https://github.com/user-attachments/assets/53cce876-6efe-4fb8-898f-8b6f217d45fe" />
+
+<img width="1915" height="396" alt="Screenshot 2026-03-25 183959" src="https://github.com/user-attachments/assets/b42e502e-431b-43b1-8307-aa351dd72613" />
+
+<img width="1919" height="417" alt="Screenshot 2026-03-25 183910" src="https://github.com/user-attachments/assets/7b94c763-01ea-49fc-a45d-6b8c914d113f" />
+
+<img width="1905" height="350" alt="Screenshot 2026-03-25 183930" src="https://github.com/user-attachments/assets/57eb43ee-4f7b-4b0d-965c-f71af0389db9" />
+
+8. output exit
+<img width="1909" height="679" alt="Screenshot 2026-03-25 184036" src="https://github.com/user-attachments/assets/9253a01d-5b2a-4730-86c1-994aceb76941" />
+
 ### Kendala
+
 - kurang paham dalam pembuat header
+
 - pemakaian cron job yang masih terbalik balik kodenya
 - pemilihan percabangan dan looping
+
+Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI hampir 60%  untuk membantu memahami konsep yang begitu belum saya pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c3d846-d7cc-8321-a3e5-e71a916f2473
