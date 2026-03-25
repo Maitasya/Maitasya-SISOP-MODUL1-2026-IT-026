@@ -48,10 +48,12 @@ Setelah file passenger.csv berhasil diunduh, langkah selanjutnya adalah memastik
     cat passenger.csv 
 
 #### 4. Menulis Script Awk
-Membuka file menggunakan text editor, dengan  perintah  berikut:
+Langkah seelanjutnya yaitu membuka file menggunakan text editor, dengan  perintah  berikut:
+
             nano KANJ.sh 
 
-        Kemudian menuliskan logika program menggunakan awk untuk:
+Kemudian menuliskan logika program menggunakan awk untuk:
+
 #### Awalan 
 ---
 ```bash
@@ -65,8 +67,7 @@ Membuka file menggunakan text editor, dengan  perintah  berikut:
     delete ARGV[2]
     }
 ```
-Bagian ini berfungsi untuk menyiapkan dan membersihkan data awal sebelum diproses. Script menetapkan pemisah kolom CSV, mengambil nama file dan kode soal dari argumen, serta menghapus argumen yang tidak perlu agar data siap dianalisis. Dengan kata lain, bagian ini berperan sebagai proses cleaning data awal sehingga data penumpang siap digunakan untuk analisis berikutnya.
-
+Bagian ini berfungsi untuk menyiapkan dan membersihkan data awal sebelum diproses. Di mana di bagian ini program akan  menetapkan pemisah kolom CSV, mengambil nama file dan kode soal dari argumen, serta menghapus argumen yang tidak perlu agar data siap dianalisis. Dengan kata lain, bagian ini berperan sebagai proses cleaning data awal sehingga data penumpang siap digunakan untuk analisis berikutnya.
 
 #### Berikut full scriptnya:
 ---
@@ -150,7 +151,7 @@ ket:
      if (soal == "a") 
         { print "Jumlah seluruh penumpang KANJ adalah " count_passenger " orang" }
 ```
-Bagian ini digunakan untuk menghitung jumlah seluruh penumpang KANJ. Script melewati baris pertama (yang biasanya berisi header) dan menghitung setiap baris data yang ada di file CSV. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang ke layar.
+Bagian ini digunakan untuk menghitung jumlah seluruh penumpang KANJ. Script melewati baris pertama (yang biasanya berisi header) dan menghitung setiap baris data yang ada di file CSV. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang ke layar output.
 
 #### B. Menghitung jumlah gerbong
 ```bash
@@ -167,7 +168,7 @@ Bagian ini digunakan untuk menghitung jumlah seluruh penumpang KANJ. Script mele
         printf "Jumlah gerbong penumpang KANJ adalah %d\n", carriage
     }
 ```
-Bagian ini digunakan untuk menghitung jumlah gerbong unik tempat penumpang KANJ berada. Script melewati baris pertama, lalu membersihkan spasi atau karakter yang tidak perlu pada kolom gerbong agar data konsisten. Setiap gerbong yang muncul dicatat dalam array khusus, sehingga setiap gerbong hanya dihitung sekali. Setelah semua baris dibaca, script menghitung jumlah total gerbong unik dan menampilkannya ke layar.
+Bagian ini digunakan untuk menghitung jumlah gerbong unik tempat penumpang KANJ berada. Script melewati baris pertama, lalu membersihkan spasi atau karakter yang tidak perlu pada kolom gerbong agar data konsisten. Setiap gerbong yang muncul dicatat dalam array khusus, sehingga setiap gerbong hanya dihitung sekali. Setelah semua baris dibaca, script menghitung jumlah total gerbong unik dan menampilkannya ke output.
 
 #### C. Mencari nama dan usia penumpang tertua
 ```bash
@@ -186,7 +187,7 @@ Bagian ini digunakan untuk menghitung jumlah gerbong unik tempat penumpang KANJ 
         printf "%s adalah penumpang kereta tertua dengan usia %d tahun\n", oldest, max_age
     }
 ```
-Lalu bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melewati baris pertama, lalu membersihkan spasi pada kolom usia dan mengubahnya menjadi angka. Selama membaca data, script selalu membandingkan usia penumpang saat ini dengan usia tertinggi yang telah tercatat. Jika lebih tua, nama dan usia penumpang tersebut disimpan sebagai penumpang tertua. Setelah seluruh data dibaca, script menampilkan nama penumpang tertua beserta usianya.
+Lalu bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melewati baris pertama, lalu membersihkan spasi pada kolom usia dan mengubahnya menjadi angka. Selama membaca data, script selalu membandingkan usia penumpang saat ini dengan usia tertinggi yang telah tercatat. Jika lebih tua, nama dan usia penumpang tersebut disimpan sebagai penumpang tertua. Setelah seluruh data dibaca, script menampilkan nama penumpang tertua beserta usianya ke layar output.
 
 #### D. Menghitung rata-rata usia penumpang
 ```bash
@@ -203,7 +204,7 @@ Lalu bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melew
         printf "Rata-rata usia penumpang adalah %d tahun\n", average_age
     }
 ```
-Kemudian di bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ. Script melewati baris pertama, kemudian membersihkan spasi pada kolom usia dan menambahkan setiap nilai usia ke total kumulatif. Selain itu, script juga menghitung jumlah penumpang yang valid. Setelah semua data dibaca, script menghitung rata-rata usia dengan membagi total usia dengan jumlah penumpang, membulatkannya, lalu menampilkan hasilnya ke layar.
+Kemudian di bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ. Script melewati baris pertama, kemudian membersihkan spasi pada kolom usia dan menambahkan setiap nilai usia ke total kumulatif. Selain itu, script juga menghitung jumlah penumpang yang valid. Setelah semua data dibaca, script menghitung rata-rata usia dengan membagi total usia dengan jumlah penumpang, membulatkannya, lalu menampilkan hasilnya ke layar output.
 
 #### E. Menghitung Jumlah penumpang Business Class
 ```bash
@@ -215,7 +216,7 @@ Kemudian di bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ.
         printf "Jumlah penumpang business class ada %d orang\n", business_passenger
     }
 ```
-selanjutnya di bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script melewati baris pertama, lalu memeriksa kolom kelas untuk menentukan apakah penumpang termasuk Business. Setiap penumpang yang sesuai dihitung dan disimpan ke variabel khusus. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang Business Class ke layar.
+selanjutnya di bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script melewati baris pertama, lalu memeriksa kolom kelas untuk menentukan apakah penumpang termasuk Business. Setiap penumpang yang sesuai dihitung dan disimpan ke variabel khusus. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang Business Class ke layar output.
 
 #### Jika tidak sesuai inputanya
 ```bash 
@@ -224,7 +225,7 @@ selanjutnya di bagian ini digunakan untuk menghitung jumlah penumpang kelas Busi
         print "Contoh penggunaan: awk -f KANJ.sh passenger.csv a"
     }
 ```
-Dan yang bagian terakhir ini digunakan untuk menangani kondisi ketika kode yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
+Dan yang bagian terakhir ini digunakan untuk menangani kondisi ketika kode yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan mengetikkan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
 
 #### Menjalankan script KANJ.sh
 dengan perintah berikut:
@@ -285,6 +286,8 @@ Banyak sekali error di logika berikut adalah buktinya:
 - Perubahan kode belum konsisten atau belum menyentuh bagian inti permasalahan (logika utama masih salah).
 ---
 
+Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI untuk membantu memahami konsep yang begitu saya pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c35a6f-2f88-8324-b8bd-f5b850b8f8d2
+
 ## SOAL 2
 ### Deskripsi
 Pada soal ini dilakukan proses pencarian lokasi pusaka dengan mengunduh file peta, menemukan tautan tersembunyi, dan melakukan clone repository untuk mendapatkan data koordinat dalam file JSON. Data tersebut kemudian diparsing menggunakan shell script parserkoordinat.sh untuk mengambil informasi penting seperti id, nama lokasi, latitude, dan longitude ke dalam file terstruktur. Selanjutnya, posisi pusaka ditentukan dengan menghitung titik tengah dari dua koordinat diagonal menggunakan script nemupusaka.sh dan hasilnya disimpan dalam file posisipusaka.txt.
@@ -304,7 +307,7 @@ soal_2
 
 ### Langkah Pengerjaan
 #### 1. Membuat Struktur Folder
-Membuat struktur direktori untuk menyimpan file-file ekspedisi:
+Pertama membuat struktur direktori untuk menyimpan file-file ekspedisi:
 ```bash 
 mkdir soal_2
 cd soal_2
@@ -319,7 +322,8 @@ touch titik-penting.txt
 touch posisipusaka.txt
 ```
 #### 2. Menyiapkan Environment dan Tools
-Membuat virtual environment Python, mengaktifkannya, dan menginstall tools `gdown` untuk mengunduh file dari Google Drive:
+selanjutnya membuat virtual environment Python, mengaktifkannya, dan menginstall tools `gdown` untuk mengunduh file dari Google Drive:
+
 ```bash 
 sudo apt update
 sudo apt install python3-pip python3-venv
@@ -328,13 +332,15 @@ source env/bin/activate
 pip install gdown
 ```
 #### 3. Mengunduh File Peta Ekspedisi
-Mengunduh file PDF peta ekspedisi dan menyimpannya ke folder `ekspedisi`:
+Langkah selanjutnya mengunduh file PDF peta ekspedisi dan menyimpannya ke folder `ekspedisi` yang natinya akan digunakan pada proses eksekusi:
+
 ```bash 
 gdown https://drive.google.com/uc?id=1q10pHSC3KFfvEiCN3V6PTroPR7YGHF6Q
 ```
 
 #### 4. Menginstall Git dan Clone Repository Tautan Tersembunyi
-Menginstall Git dan meng-clone repository untuk mendapatkan data JSON titik lokasi:
+Lanjut menginstall Git dan meng-clone repository untuk mendapatkan data JSON titik lokasi:
+
 ```bash 
 sudo apt install git
 git clone https://github.com/pocongcyber77/peta-gunung-kawi.git
@@ -342,15 +348,18 @@ cd peta-gunung-kawi
 ```
 
 #### 5. Membuat Script Parser Koordinat
-Membuat dan menjalankan shell script `parserkoordinat.sh` untuk mengekstrak data `id`, `site_name`, `latitude`, dan `longitude` dari file `gsxtrack.json` dan menyimpannya ke `titik-penting.txt`:
+Langkah berikutnya yaitu membuat dan menjalankan shell script `parserkoordinat.sh` untuk mengekstrak data `id`, `site_name`, `latitude`, dan `longitude` dari file `gsxtrack.json` dan menyimpannya ke `titik-penting.txt`:
+
 ```bash 
-nano parserkoordinat.sh   # menulis script
+nano parserkoordinat.sh
+```
+
 chmod +x parserkoordinat.sh
 ./parserkoordinat.sh
 cat titik-penting.txt
 ```
 #### 6. Membuat dan Menjalankan Script Menentukan Titik Pusaka
-Menulis shell script `nemupusaka.sh` untuk menghitung titik tengah diagonal dari koordinat dan menyimpannya ke `posisipusaka.txt`:
+Lanjutan dari proses diatas yaitu menulis shell script `nemupusaka.sh` untuk menghitung titik tengah diagonal dari koordinat dan menyimpannya ke `posisipusaka.txt`:
 ```bash 
 nano nemupusaka.sh        
 chmod +x nemupusaka.sh
@@ -366,15 +375,11 @@ cat posisipusaka.txt
 <img width="1899" height="259" alt="Screenshot 2026-03-19 082921" src="https://github.com/user-attachments/assets/c750e15f-a32e-495c-afac-d9a4f1903bca" />
 
    ### Kendala
--Susah memahami soal
-
--Banyak sekali error di logika
-
--Sering typo saat menuliskan perintah
-
--Pas awal tidak tahu cara download file dari Google Drive menggunakan gdown atau cara membuat virtual environment
-
--Parsing JSON secara manual
+- Kesulitan dalam memahami instruksi soal sehingga membutuhkan waktu lebih lama untuk menentukan langkah pengerjaan.
+- Banyak terjadi error pada logika script sehingga program tidak langsung menghasilkan output yang sesuai.
+- Sering terjadi typo saat menuliskan perintah di terminal yang menyebabkan command tidak dapat dijalankan.
+- Pada awal pengerjaan belum memahami cara mengunduh file dari Google Drive menggunakan gdown serta cara membuat virtual environment Python.
+- Parsing file JSON secara manual cukup sulit karena harus menyesuaikan format data agar dapat diolah menggunakan shell script.
 
 ### Kendala
 - kurang paham dalam pembuat header
