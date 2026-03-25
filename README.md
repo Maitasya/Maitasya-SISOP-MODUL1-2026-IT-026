@@ -138,9 +138,9 @@ END {
 ```
 ket: 
     
-    - BEGIN: Dijalankan sebelum membaca file untuk menyiapkan variabel dan membersihkan argumen agar data siap diproses.
+- BEGIN: Dijalankan sebelum membaca file untuk menyiapkan variabel dan membersihkan argumen agar data siap diproses.
 
-    - END: Dijalankan setelah membaca seluruh file untuk menampilkan hasil akhir analisis, misalnya jumlah penumpang, gerbong unik, atau penumpang tertua.
+- END: Dijalankan setelah membaca seluruh file untuk menampilkan hasil akhir analisis, misalnya jumlah penumpang, gerbong unik, atau penumpang tertua.
 ### Penjelasan
 ---
 #### A. Menghitung jumlah penumpang
