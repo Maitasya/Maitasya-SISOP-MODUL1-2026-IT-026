@@ -284,9 +284,10 @@ Banyak sekali error di logika berikut adalah buktinya:
 - Nilai umur tidak terbaca dengan benar akibat kesalahan parsing kolom atau belum dilakukan konversi ke numerik.
 - Kesalahan dalam pengambilan field menyebabkan seluruh baris terbaca sebagai satu variabel.
 - Perubahan kode belum konsisten atau belum menyentuh bagian inti permasalahan (logika utama masih salah).
----
 
 Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI untuk membantu memahami konsep yang begitu saya pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c35a6f-2f88-8324-b8bd-f5b850b8f8d2
+
+---
 
 ## SOAL 2
 ### Deskripsi
@@ -353,15 +354,66 @@ Langkah berikutnya yaitu membuat dan menjalankan shell script `parserkoordinat.s
 ```bash 
 nano parserkoordinat.sh
 ```
+scriptnya :
+```bash
+#!/bin/bash
 
+INPUT_FILE="gsxtrack.json"
+OUTPUT_FILE="titik-penting.txt"
+
+# Hapus file lama
+> $OUTPUT_FILE
+
+# Parsing data
+awk '
+BEGIN { FS="[:,]"; OFS=", " }
+/"id"/ { gsub(/[ ]/,"",$2); id=$2 }
+/site_name/ { gsub(/^[ ]+|[ ]+$/,"",$2); site_name=$2 }
+/latitude/ { gsub(/[ ]/,"",$2); lat=$2 }
+/longitude/ { gsub(/[ ]/,"",$2); lon=$2; print id, site_name, lat, lon >> "'">
+' $INPUT_FILE
+
+# Konfirmasi selesai
+echo "Parsing selesai. Data disimpan di $OUTPUT_FILE"
+```
+Script ini membaca data dari file `gsxtrack.json` kemudian melakukan parsing menggunakan `awk` untuk mengambil informasi penting berupa id, site_name, latitude, dan longitude. Data yang diperoleh dibersihkan dari spasi yang tidak diperlukan agar formatnya rapi dan mudah diolah. Hasil parsing kemudian disimpan ke dalam file `titik-penting.txt` sebagai daftar titik koordinat penting.
+
+```bash
 chmod +x parserkoordinat.sh
 ./parserkoordinat.sh
 cat titik-penting.txt
 ```
 #### 6. Membuat dan Menjalankan Script Menentukan Titik Pusaka
 Lanjutan dari proses diatas yaitu menulis shell script `nemupusaka.sh` untuk menghitung titik tengah diagonal dari koordinat dan menyimpannya ke `posisipusaka.txt`:
+
 ```bash 
-nano nemupusaka.sh        
+nano nemupusaka.sh
+```
+scriptnya:
+ ``` bash
+#!/bin/bash
+
+# baca koordinat dari titik-penting.txt
+lat1=$(awk -F"," 'NR==1 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
+lon1=$(awk -F"," 'NR==1 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
+
+lat2=$(awk -F"," 'NR==3 {gsub(/ /,"",$3); print $3}' titik-penting.txt)
+lon2=$(awk -F"," 'NR==3 {gsub(/ /,"",$4); print $4}' titik-penting.txt)
+
+# hitung titik tengah menggunakan bc
+mid_lat=$(echo "scale=6; ($lat1 + $lat2)/2" | bc -l)
+mid_lon=$(echo "scale=6; ($lon1 + $lon2)/2" | bc -l)
+
+# simpan ke posisipusaka.txt dengan format yang diminta
+echo "Koordinat Pusaka Ditemukan:" > posisipusaka.txt
+echo "Latitude: $mid_lat" >> posisipusaka.txt
+echo "Longitude: $mid_lon" >> posisipusaka.txt
+
+echo "Lokasi pusaka tersimpan di posisipusaka.txt"
+```
+Pada script ini dilakukan pembacaan koordinat dari file `titik-penting.txt` menggunakan `awk`, kemudian dihitung titik tengah dari dua koordinat diagonal menggunakan rumus yang telah diberikan, dan hasilnya disimpan ke dalam file `posisipusaka.txt` sebagai posisi pusaka.
+
+```bash
 chmod +x nemupusaka.sh
 ./nemupusaka.sh
 cat posisipusaka.txt
@@ -380,6 +432,10 @@ cat posisipusaka.txt
 - Sering terjadi typo saat menuliskan perintah di terminal yang menyebabkan command tidak dapat dijalankan.
 - Pada awal pengerjaan belum memahami cara mengunduh file dari Google Drive menggunakan gdown serta cara membuat virtual environment Python.
 - Parsing file JSON secara manual cukup sulit karena harus menyesuaikan format data agar dapat diolah menggunakan shell script.
+
+Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI untuk membantu memahami konsep yang begitu saya pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c37207-c668-839e-bade-a90f7d681bc1
+
+---
 
 ### Kendala
 - kurang paham dalam pembuat header
