@@ -48,10 +48,12 @@ Setelah file passenger.csv berhasil diunduh, langkah selanjutnya adalah memastik
     cat passenger.csv 
 
 #### 4. Menulis Script Awk
-Membuka file menggunakan text editor, dengan  perintah  berikut:
+Langkah seelanjutnya yaitu membuka file menggunakan text editor, dengan  perintah  berikut:
+
             nano KANJ.sh 
 
-        Kemudian menuliskan logika program menggunakan awk untuk:
+Kemudian menuliskan logika program menggunakan awk untuk:
+
 #### Awalan 
 ---
 ```bash
@@ -65,8 +67,7 @@ Membuka file menggunakan text editor, dengan  perintah  berikut:
     delete ARGV[2]
     }
 ```
-Bagian ini berfungsi untuk menyiapkan dan membersihkan data awal sebelum diproses. Script menetapkan pemisah kolom CSV, mengambil nama file dan kode soal dari argumen, serta menghapus argumen yang tidak perlu agar data siap dianalisis. Dengan kata lain, bagian ini berperan sebagai proses cleaning data awal sehingga data penumpang siap digunakan untuk analisis berikutnya.
-
+Bagian ini berfungsi untuk menyiapkan dan membersihkan data awal sebelum diproses. Di mana di bagian ini program akan  menetapkan pemisah kolom CSV, mengambil nama file dan kode soal dari argumen, serta menghapus argumen yang tidak perlu agar data siap dianalisis. Dengan kata lain, bagian ini berperan sebagai proses cleaning data awal sehingga data penumpang siap digunakan untuk analisis berikutnya.
 
 #### Berikut full scriptnya:
 ---
@@ -167,7 +168,7 @@ Bagian ini digunakan untuk menghitung jumlah seluruh penumpang KANJ. Script mele
         printf "Jumlah gerbong penumpang KANJ adalah %d\n", carriage
     }
 ```
-Bagian ini digunakan untuk menghitung jumlah gerbong unik tempat penumpang KANJ berada. Script melewati baris pertama, lalu membersihkan spasi atau karakter yang tidak perlu pada kolom gerbong agar data konsisten. Setiap gerbong yang muncul dicatat dalam array khusus, sehingga setiap gerbong hanya dihitung sekali. Setelah semua baris dibaca, script menghitung jumlah total gerbong unik dan menampilkannya ke layar.
+Bagian ini digunakan untuk menghitung jumlah gerbong unik tempat penumpang KANJ berada. Script melewati baris pertama, lalu membersihkan spasi atau karakter yang tidak perlu pada kolom gerbong agar data konsisten. Setiap gerbong yang muncul dicatat dalam array khusus, sehingga setiap gerbong hanya dihitung sekali. Setelah semua baris dibaca, script menghitung jumlah total gerbong unik dan menampilkannya ke output.
 
 #### C. Mencari nama dan usia penumpang tertua
 ```bash
@@ -224,7 +225,7 @@ selanjutnya di bagian ini digunakan untuk menghitung jumlah penumpang kelas Busi
         print "Contoh penggunaan: awk -f KANJ.sh passenger.csv a"
     }
 ```
-Dan yang bagian terakhir ini digunakan untuk menangani kondisi ketika kode yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
+Dan yang bagian terakhir ini digunakan untuk menangani kondisi ketika kode yang dimasukkan tidak valid. Jika pengguna menjalankan script dengan mengetikkan argumen selain a, b, c, d, atau e, script akan menampilkan pesan peringatan beserta contoh cara penggunaan yang benar. Dengan kata lain, bagian ini berfungsi sebagai validasi input, agar pengguna tahu cara menjalankan script dengan tepat dan mencegah error saat proses analisis data.
 
 #### Menjalankan script KANJ.sh
 dengan perintah berikut:
