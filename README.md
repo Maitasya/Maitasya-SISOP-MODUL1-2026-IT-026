@@ -277,8 +277,6 @@ Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan d
 <img width="1710" height="158" alt="Screenshot 2026-03-18 194258" src="https://github.com/user-attachments/assets/2b1c9ab1-a7b8-4f23-ab92-336cf5a74988" />
 
 ### Kendala
-Banyak sekali error di logika berikut adalah buktinya:
-<img width="978" height="633" alt="image" src="https://github.com/user-attachments/assets/4865d733-e5e6-4a83-85af-846c036d0c05" />
 - Salah menggunakan struktur percabangan karena kemarin abis baca modul bagian shell scripting (bash).
 - Perhitungan gerbong unik tidak akurat karena data belum dibersihkan sepenuhnya (spasi atau karakter tersembunyi masih terbaca sebagai data berbeda).
 - Nilai umur tidak terbaca dengan benar akibat kesalahan parsing kolom atau belum dilakukan konversi ke numerik.
@@ -457,8 +455,7 @@ soal_3/
 ```   
 ### Langkah Pengerjaan
 #### 1. Membuat Struktur Folder
-
-Membuat struktur direktori untuk sistem manajemen kost:
+Langkah pertama membuat struktur direktori untuk sistem manajemen kost:
 
 ```bash
 mkdir soal_3
@@ -477,8 +474,7 @@ touch sampah/history_hapus.csv
 Struktur ini digunakan untuk memisahkan fungsi penyimpanan data, yaitu `data` sebagai database utama, `log` untuk hasil cron job, `rekap` untuk laporan keuangan, dan `sampah` sebagai arsip data yang dihapus.
 
 #### 2. Membuat Template Program Utama (Menu Loop)
-
-Membuat file utama program dengan menu interaktif menggunakan looping agar program terus berjalan hingga pengguna memilih keluar.
+Lalu membuat file utama program dengan menu interaktif menggunakan looping agar program terus berjalan hingga pengguna memilih keluar.
 
 ```bash
 nano kost_slebew.sh
@@ -487,6 +483,7 @@ nano kost_slebew.sh
 Kemudian diisi dengan struktur dasar menggunakan while true dan case untuk menangani setiap pilihan menu seperti tambah penghuni, hapus, tampilkan data, update status, laporan, dan cron job.
 
 script keseluruhan sebagai berikut:
+
 A. Inisialisasi Variabel dan File
 
 ```bash
@@ -547,7 +544,7 @@ echo "7  | Exit Program"
 echo "=================================="
 read -p "Enter option [1-7]: " opsi
 ```
-Bagian ini digunakan untuk membuat program berjalan terus menerus menggunakan perulangan tanpa batas. Setiap kali menu selesai dijalankan, layar akan dibersihkan dan menu akan ditampilkan kembali. Program menampilkan tampilan menu utama lengkap dengan pilihan fitur yang tersedia untuk pengguna. Setelah itu, program membaca input pilihan user untuk menentukan aksi selanjutnya.
+Bagian ini digunakan untuk membuat program berjalan terus menerus menggunakan perulangan tanpa batas. Program menampilkan tampilan menu utama lengkap dengan pilihan fitur yang tersedia untuk pengguna. Setelah itu, program membaca input pilihan user untuk menentukan aksi selanjutnya.
 
 D. Percabangan Menu
 
@@ -822,16 +819,45 @@ chmod +x kost_slebew.sh
 Program kemudian akan menampilkan menu interaktif yang dapat digunakan untuk mengelola data kost secara keseluruhan.
 
 ### Output / Screenshot
+
 1. Output Menu Utama
+<img width="1912" height="604" alt="Screenshot 2026-03-25 183343" src="https://github.com/user-attachments/assets/c7d2ee4d-e239-47fc-ad04-f6d3ec6ee7c3" />
+
 2. Output Tambah Penghuni
-3. Output Hapus Penghuni
-4. Output Tampilkan Data
+<img width="1915" height="338" alt="Screenshot 2026-03-25 183542" src="https://github.com/user-attachments/assets/b6969c7c-2e3e-4a06-b04d-74fd9c2c7adc" />
+
+3. Output Tampilkan Data
+<img width="1915" height="449" alt="Screenshot 2026-03-25 183633" src="https://github.com/user-attachments/assets/19d3a89d-4133-494f-9246-102e4d031dcf" />
+
+4. Output Hapus Penghuni
+<img width="1918" height="440" alt="Screenshot 2026-03-25 183659" src="https://github.com/user-attachments/assets/7e5fe313-24d3-4da1-a040-b9966cedd2e7" />
+
+<img width="1915" height="388" alt="Screenshot 2026-03-25 184327" src="https://github.com/user-attachments/assets/8370827c-c019-46d6-86cc-da2bbf120f10" />
+
 5. Output Update Status
+<img width="1912" height="295" alt="Screenshot 2026-03-25 183727" src="https://github.com/user-attachments/assets/b4130b16-f618-4878-9e93-ca9c63afb3f1" />
+
+<img width="1915" height="388" alt="Screenshot 2026-03-25 184327" src="https://github.com/user-attachments/assets/8370827c-c019-46d6-86cc-da2bbf120f10" />
+
 6. Output Laporan Keuangan
+<img width="1911" height="411" alt="Screenshot 2026-03-25 183753" src="https://github.com/user-attachments/assets/5a91bb28-9c4a-4748-8a29-e6e4929ae889" />
+
 7. Output Kelola Cron
+<img width="1915" height="396" alt="Screenshot 2026-03-25 183959" src="https://github.com/user-attachments/assets/b42e502e-431b-43b1-8307-aa351dd72613" />
+
+<img width="1914" height="447" alt="Screenshot 2026-03-25 183851" src="https://github.com/user-attachments/assets/53cce876-6efe-4fb8-898f-8b6f217d45fe" />
+
+<img width="1919" height="417" alt="Screenshot 2026-03-25 183910" src="https://github.com/user-attachments/assets/7b94c763-01ea-49fc-a45d-6b8c914d113f" />
+
+<img width="1905" height="350" alt="Screenshot 2026-03-25 183930" src="https://github.com/user-attachments/assets/57eb43ee-4f7b-4b0d-965c-f71af0389db9" />
+
+8. output exit
+<img width="1909" height="679" alt="Screenshot 2026-03-25 184036" src="https://github.com/user-attachments/assets/9253a01d-5b2a-4730-86c1-994aceb76941" />
 
 ### Kendala
+
 - kurang paham dalam pembuat header
+
 - pemakaian cron job yang masih terbalik balik kodenya
 - pemilihan percabangan dan looping
 
