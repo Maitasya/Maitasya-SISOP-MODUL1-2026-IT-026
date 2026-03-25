@@ -861,4 +861,4 @@ Program kemudian akan menampilkan menu interaktif yang dapat digunakan untuk men
 - pemakaian cron job yang masih terbalik balik kodenya
 - pemilihan percabangan dan looping
 
-Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI hampir 60%  untuk membantu memahami konsep yang begitu belum saya pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut :
+Selama mengerjakan praktikum ini, saya juga memanfaatkan bantuan AI hampir 60%  untuk membantu memahami konsep yang begitu belum saya pahami  serta menemukan letak kesalahan (error) pada program yang menyebabkan kode tidak dapat berjalan dengan lancar. Linknya sebagai berikut : https://chatgpt.com/share/69c3d846-d7cc-8321-a3e5-e71a916f2473
