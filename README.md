@@ -843,9 +843,9 @@ Program kemudian akan menampilkan menu interaktif yang dapat digunakan untuk men
 <img width="1911" height="411" alt="Screenshot 2026-03-25 183753" src="https://github.com/user-attachments/assets/5a91bb28-9c4a-4748-8a29-e6e4929ae889" />
 
 7. Output Kelola Cron
-<img width="1915" height="396" alt="Screenshot 2026-03-25 183959" src="https://github.com/user-attachments/assets/b42e502e-431b-43b1-8307-aa351dd72613" />
-
 <img width="1914" height="447" alt="Screenshot 2026-03-25 183851" src="https://github.com/user-attachments/assets/53cce876-6efe-4fb8-898f-8b6f217d45fe" />
+
+<img width="1915" height="396" alt="Screenshot 2026-03-25 183959" src="https://github.com/user-attachments/assets/b42e502e-431b-43b1-8307-aa351dd72613" />
 
 <img width="1919" height="417" alt="Screenshot 2026-03-25 183910" src="https://github.com/user-attachments/assets/7b94c763-01ea-49fc-a45d-6b8c914d113f" />
 
