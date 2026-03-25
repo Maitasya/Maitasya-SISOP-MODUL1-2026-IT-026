@@ -151,7 +151,7 @@ ket:
      if (soal == "a") 
         { print "Jumlah seluruh penumpang KANJ adalah " count_passenger " orang" }
 ```
-Bagian ini digunakan untuk menghitung jumlah seluruh penumpang KANJ. Script melewati baris pertama (yang biasanya berisi header) dan menghitung setiap baris data yang ada di file CSV. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang ke layar.
+Bagian ini digunakan untuk menghitung jumlah seluruh penumpang KANJ. Script melewati baris pertama (yang biasanya berisi header) dan menghitung setiap baris data yang ada di file CSV. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang ke layar output.
 
 #### B. Menghitung jumlah gerbong
 ```bash
@@ -187,7 +187,7 @@ Bagian ini digunakan untuk menghitung jumlah gerbong unik tempat penumpang KANJ 
         printf "%s adalah penumpang kereta tertua dengan usia %d tahun\n", oldest, max_age
     }
 ```
-Lalu bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melewati baris pertama, lalu membersihkan spasi pada kolom usia dan mengubahnya menjadi angka. Selama membaca data, script selalu membandingkan usia penumpang saat ini dengan usia tertinggi yang telah tercatat. Jika lebih tua, nama dan usia penumpang tersebut disimpan sebagai penumpang tertua. Setelah seluruh data dibaca, script menampilkan nama penumpang tertua beserta usianya.
+Lalu bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melewati baris pertama, lalu membersihkan spasi pada kolom usia dan mengubahnya menjadi angka. Selama membaca data, script selalu membandingkan usia penumpang saat ini dengan usia tertinggi yang telah tercatat. Jika lebih tua, nama dan usia penumpang tersebut disimpan sebagai penumpang tertua. Setelah seluruh data dibaca, script menampilkan nama penumpang tertua beserta usianya ke layar output.
 
 #### D. Menghitung rata-rata usia penumpang
 ```bash
@@ -204,7 +204,7 @@ Lalu bagian ini digunakan untuk menemukan penumpang tertua di KANJ. Script melew
         printf "Rata-rata usia penumpang adalah %d tahun\n", average_age
     }
 ```
-Kemudian di bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ. Script melewati baris pertama, kemudian membersihkan spasi pada kolom usia dan menambahkan setiap nilai usia ke total kumulatif. Selain itu, script juga menghitung jumlah penumpang yang valid. Setelah semua data dibaca, script menghitung rata-rata usia dengan membagi total usia dengan jumlah penumpang, membulatkannya, lalu menampilkan hasilnya ke layar.
+Kemudian di bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ. Script melewati baris pertama, kemudian membersihkan spasi pada kolom usia dan menambahkan setiap nilai usia ke total kumulatif. Selain itu, script juga menghitung jumlah penumpang yang valid. Setelah semua data dibaca, script menghitung rata-rata usia dengan membagi total usia dengan jumlah penumpang, membulatkannya, lalu menampilkan hasilnya ke layar output.
 
 #### E. Menghitung Jumlah penumpang Business Class
 ```bash
@@ -216,7 +216,7 @@ Kemudian di bagian ini digunakan untuk menghitung rata-rata usia penumpang KANJ.
         printf "Jumlah penumpang business class ada %d orang\n", business_passenger
     }
 ```
-selanjutnya di bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script melewati baris pertama, lalu memeriksa kolom kelas untuk menentukan apakah penumpang termasuk Business. Setiap penumpang yang sesuai dihitung dan disimpan ke variabel khusus. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang Business Class ke layar.
+selanjutnya di bagian ini digunakan untuk menghitung jumlah penumpang kelas Business. Script melewati baris pertama, lalu memeriksa kolom kelas untuk menentukan apakah penumpang termasuk Business. Setiap penumpang yang sesuai dihitung dan disimpan ke variabel khusus. Setelah seluruh data dibaca, script menampilkan total jumlah penumpang Business Class ke layar output.
 
 #### Jika tidak sesuai inputanya
 ```bash 
