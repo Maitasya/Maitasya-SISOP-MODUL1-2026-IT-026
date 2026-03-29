@@ -124,7 +124,7 @@ END {
         printf "%s adalah penumpang kereta tertua dengan usia %d tahun\n", oldest, max_age
     }
     else if (soal == "d") {
-        average_age = int((total_usia / total_passenger) + 0.5)
+        average_age = int((total_usia / total_passenger)
         printf "Rata-rata usia penumpang adalah %d tahun\n", average_age
     }
     else if (soal == "e") {
@@ -268,7 +268,8 @@ Dengan cara ini, script akan membaca file data sesuai kode soal yang diberikan d
 <img width="1713" height="122" alt="Screenshot 2026-03-18 193536" src="https://github.com/user-attachments/assets/3dc6704f-e627-4904-bc69-a47b59e4f7aa" />
 
 4. Rata-rata usia penumpang
-<img width="1733" height="160" alt="Screenshot 2026-03-18 193705" src="https://github.com/user-attachments/assets/6e3b0438-acce-47d0-9faa-1ac26f235dbb" />
+<img width="1919" height="59" alt="Screenshot 2026-03-29 145038" src="https://github.com/user-attachments/assets/39611f21-fb4f-45e3-8a31-46f03781a005" />
+
 
 5. Jumlah penumpang Business Class
 <img width="1723" height="111" alt="Screenshot 2026-03-18 193724" src="https://github.com/user-attachments/assets/0a27bcb7-73ed-44f6-81bd-b27db936ac7b" />
@@ -825,6 +826,20 @@ Program kemudian akan menampilkan menu interaktif yang dapat digunakan untuk men
 
 2. Output Tambah Penghuni
 <img width="1915" height="338" alt="Screenshot 2026-03-25 183542" src="https://github.com/user-attachments/assets/b6969c7c-2e3e-4a06-b04d-74fd9c2c7adc" />
+
+- jika kamar sudah di pesan
+<img width="1906" height="313" alt="Screenshot 2026-03-29 145354" src="https://github.com/user-attachments/assets/39604875-bda1-4fb8-a41d-92311704b97b" />
+
+- jika input harga sewa salah
+<img width="1910" height="347" alt="Screenshot 2026-03-29 145509" src="https://github.com/user-attachments/assets/acb14ff1-87fa-4429-b104-a8d837f2cd7d" />
+
+- jika input tanggal masa depan
+<img width="1910" height="346" alt="Screenshot 2026-03-29 145542" src="https://github.com/user-attachments/assets/30190159-3198-41e3-9fcd-e1dc6ba0cff9" />
+
+
+- jika input status salah 
+<img width="1891" height="302" alt="Screenshot 2026-03-29 145632" src="https://github.com/user-attachments/assets/fa27d1cd-b604-496a-aa54-2f7db2da94ba" />
+
 
 3. Output Tampilkan Data
 <img width="1915" height="449" alt="Screenshot 2026-03-25 183633" src="https://github.com/user-attachments/assets/19d3a89d-4133-494f-9246-102e4d031dcf" />
