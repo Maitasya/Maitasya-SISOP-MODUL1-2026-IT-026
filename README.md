@@ -786,7 +786,7 @@ read -p "Tekan [ENTER]..."
 read -p "Masukkan Jam (0-23): " jam
 read -p "Masukkan Menit (0-59): " menit
 
-(crontab -l 2>/dev/null | grep -v kost_slebew.sh; echo "$menit $jam * * * $(pwd)/kost_slebew.sh --check-tagihan") | cro>
+(crontab -l 2>/dev/null | grep -v kost_slebew.sh; echo "$menit $jam * * * $(pwd)/kost_slebew.sh --check-tagihan") | crontab -
 
 echo "[✔] Cron job berhasil ditambahkan (auto replace jika ada)."
 read -p "Tekan ENTER..."
