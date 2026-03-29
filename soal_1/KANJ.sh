@@ -62,7 +62,7 @@ END {
         print oldest " adalah penumpang kereta tertua dengan usia " max_age " tahun"
     }
     else if (soal == "d") {
-        average_age = int(total_usia / total_passenger + 0.5) #dibulatin aja ke atas
+        average_age = int(total_usia / total_passenger ) #dibulatin aja ke atas
         print "Rata-rata usia penumpang adalah " average_age " tahun"
     }
     else if (soal == "e") {

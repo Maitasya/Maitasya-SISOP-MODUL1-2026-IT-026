@@ -1,6 +1,5 @@
-Total pemasukan (Aktif) : Rp1250000
-Total tunggakan        : Rp3300000
+Total pemasukan (Aktif) : Rp4550000
+Total tunggakan        : Rp0
 Jumlah kamar terisi    : 3
 --------------------------------------------------------------
-Daftar penghuni menunggak:
-- kai (Kamar 5)
+Daftar penghuni menunggak: Tidak ada tunggakan.
